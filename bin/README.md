@@ -1,2 +1,2 @@
 ## WHAT
-This folder contains basic scripts and executable files.
+This folder contains basic scripts and executable files. Within this folder is the original code that inspired the current code, the one labeled '-artifact' contains the code which inspired the more recent code utilized in the manuscript, "Finite Observation Framework Predicts Tipping Points in Transient Dynamics." The one labeled '-current' is the code which is used within the manuscript and differs from the original code, being inspired but not building off the code.
