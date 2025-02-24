@@ -1,0 +1,1 @@
+{"Measurement_Time": 10, "Measure_Error": 0.5}

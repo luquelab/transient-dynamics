@@ -1,0 +1,9 @@
+## 1. Initial Elements
+
+Let us suppose that we have several versions of a model that fit Marisa's data:
+
+$$
+\begin{align*} 
+\frac{dL}{dt}=\underbrace{r\bigg(1 - \frac{L}{K}\bigg)}_{\text{Logistic growth}} - \underbrace{\mu_i L}_{\text{Induction}} - \underbrace{\delta dT}_{\text{Infection}} \\
+\frac{dT}{dt}=\underbrace{\mu_i L}_{\text{Induction}} - \underbrace{m T}_{\text{Decay}} - \underbrace{d TL}_{\text{Infection}}
+\end{align*}$$

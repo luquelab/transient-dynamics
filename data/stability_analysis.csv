@@ -1,0 +1,16 @@
+Scenario,Dynamic regime,Growth,Decay,Predation,Burst,λ1,λ2,B*,P*,Stability,Attractor
+growth-no_decay,G,1,0,0,0,0,1,0,P0,Undetermined,B=∞;P=P0
+,GB,1,0,0,1,,,,,,
+,GPB,1,0,1,1,,,,,,
+,GP,1,0,1,0,,,,,,
+no_growth-decay,DB,0,1,0,1,,,,,,
+,DPB,0,1,1,1,,,,,,
+,DP,0,1,1,0,,,,,,
+,D,0,1,0,0,,,,,,
+Growth-decay,GDPB,1,1,1,1,,,,,,
+,GDP,1,1,1,0,,,,,,
+,GD,1,1,0,0,,,,,,
+no_growth-no_decay,Empty,0,0,0,0,,,,,,
+,P,0,0,1,0,,,,,,
+,B,0,0,0,1,,,,,,
+,PB,0,0,1,0,,,,,,

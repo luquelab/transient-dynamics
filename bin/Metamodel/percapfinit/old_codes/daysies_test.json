@@ -1,0 +1,82 @@
+{
+    "observer": {
+        "observational_time": {
+            "unit": "h",
+            "value": 100
+        },
+        "system_size": {
+            "unit": "ml",
+            "value": 1
+        }
+    },
+    "variables": {
+        "Time": {
+            "symbol": "t",
+            "unit": "h",
+            "independent": true,
+            "initial_value": 0
+        },
+        "w_daysy": {
+            "symbol": "w_daysy",
+            "unit": "m^2",
+            "independent": false,
+            "mechanisms": {
+                "growth_w": "beta_max*p*w_daysy",
+                "competition_w_b": "-beta_max*b_daysy*w_daysy",
+                "carrying_capacity_w": "-beta_max*w_daysy*w_daysy",
+                "temp_corr_growth_w": "-p*k*(T-T_opt)**2*w_daysy",
+                "temp_corr_competition_w": "-k*(T-T_opt)**2*b_daysy*w_daysy",
+                "temp_corr_carrying_w": "-k*(T-T_opt)**2*w_daysy*w_daysy",
+                "decay_w": "-gamma*w_daysy"
+            },
+            "initial_value": 0.1
+        },
+        "b_daysy": {
+            "symbol": "b_daysy",
+            "unit": "m^2",
+            "independent": false,
+            "mechanisms": {
+                "growth_b": "beta_max*p*b_daysy",
+                "competition_b_w": "-beta_max*w_daysy*b_daysy",
+                "carrying_capacity_b": "-beta_max*b_daysy*b_daysy",
+                "temp_corr_growth_b": "-p*k*(T-T_opt)**2*b_daysy",
+                "temp_corr_competition_b": "-k*(T-T_opt)**2*w_daysy*b_daysy",
+                "temp_corr_carrying_b": "-k*(T-T_opt)**2*b_daysy*b_daysy",
+                "decay_b": "-gamma*b_daysy"
+            },
+            "initial_value": 0.2
+        }
+    },
+    "parameters": {
+        "growth_rate": {
+            "symbol": "beta_max",
+            "unit": "1/day",
+            "value": 1
+        },
+        "free_soil": {
+            "symbol": "p",
+            "unit": "m^2",
+            "value": 1
+        },
+        "temp_constraint": {
+            "symbol": "k",
+            "unit": "1/K**2",
+            "value": 0
+        },
+        "temp": {
+            "symbol": "T",
+            "unit": "K",
+            "value": 280
+        },
+        "optimal_temp": {
+            "symbol": "T_opt",
+            "unit": "K",
+            "value": 295.5
+        },
+        "decay_constant": {
+            "symbol": "gamma",
+            "unit": "1/day",
+            "value": 0.05
+        }
+    }
+}

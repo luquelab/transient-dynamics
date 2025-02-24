@@ -1,0 +1,28 @@
+---
+title: "Values for important parameters"
+graphics: yes
+header-includes:
+  - \usepackage{color}                                                                              
+  - \usepackage{caption}                                                                            
+  - \usepackage{anysize}                                                                            
+  - \usepackage{amsmath}                                                                            
+  - \usepackage{siunitx}                                                                            
+                                                                                                    
+---
+
+[comment]: <> (To compile this document: pandoc Table_Values.md -o Table_Values.pdf)
+
+
+
+|Dominant timescale| r  | m | r and m  |
+| ------------ |----------------- | ----------------- | ------------------ | 
+| $B_c=1/(\tau c d)$   | $15873.016$ cells/ml    | $256410.26$ cells/ml  | $1111.11$ cells/ml |
+| $P_c=1/(\tau d)$ | $2380952.38$ virions/ml | $38461538.46$ virions/ml | $166666.66$ virions/ml |
+| $B_0$   | $1000$ cells/ml    | $66666666.67$ cells/ml  | $55555.55$ cells/ml |
+| $P_0$   | $1e4$ virions/ml    | $1$ virions/ml  | $3333333.33$ cells/ml |
+| $\tau$ | $14$ h | $260$ h | $200$ h|
+| $w_{growth}=r \tau$ | $12.6$ | $2.6e-08$  | $20.0$ |
+| $w_{decay}=m \tau$ | $0.0042$ | $26.0$ | $20.0$ |
+| Transition times |$t^c_{1}=3.07$ h,$t^c_{2}=7.79$ h,$t^c_{3}=9.068$ h |$t^c_{1}=19.50$ h,$t^c_{2}=33.98$ h, $t^c_{3}=81.46$ h | |
+| Error | | | |
+| Standard Deviation | | | |

@@ -1,0 +1,69 @@
+## What?
+
+Hyperion is a tool that identifies which parts of a model are negligible at a particular moment or under a specific set of circumstances. Likewise, it 
+identifies when those elements stop being negligible.
+Hyperion works with Ordinary Differential Equation (ODEs) models. These models are dynamic and formally simple, yet computationally expensive when many state
+variables are considered.
+
+
+##Today?
+
+ODE models are widespread in science because of their formal simplicity and power. The idea is that one has a system consisting of N state variables that change over
+time. Each state variable changes according to an ODE that contains mechanistic terms governing its behavior. A common example of this are Lotka-Volterra equations or,
+in our framework, consumer-resource systems [1].
+However, ODE-based models become computationally expensive as one increases the number of state variables and mechanistic processes. Because they are rarely solvable analytically,
+some numerical solvers might not even be able to find a solution.
+
+##Novelty
+
+Hyperion tracks the elements of an ODE-based model dynamically. The fundamental element of novelty is that Hyperion does not label any element of the model as 
+negligible/active in absolute terms. Rather, it labels that element as negligible/active at specific time points and specific circumstances. 
+Hyperion is also an initial step in the development of a tool that can simplify ODE based models in a rigorous way. That tool would switch on and off elements of 
+the model as they become negligible/active.
+Hyperion will be successful because it provides a deep knowledge of the model and the relative importance of its terms, as well as how collective behaviors 
+emerge from the interaction between terms. Ultimately, it will also provide a connection between the model and the actual system under study. 
+
+##Why?
+
+ODE based models are widely used across many disciplines. Hyperion will be of interest to anyone using ODE based models with a certain degree of complexity,
+because it provides a rigorous criterion to select terms that significantly contribute (or not) to the observable behavior of the system being analyzed. 
+
+##So what?
+
+Hyperion will provide better means to understand ODE based models and their constituting terms. Hyperion is also an intermediate step to develop a metamodel: 
+a model that  can dynamically switch off and on mechanistic terms as they become negligible or relevant.
+
+
+##Ups and downs
+
+Ups
+Hyperion will allow users to better understand their own models; how do the terms of a model behave in time? If the researcher introduces a new element in the
+model, how will this term behave in time? When will it be important? When will it be irrelevant? While it is being relevant, how does it affect other terms or 
+the accuracy of the whole model itself?
+
+If Hyperion is successful, we might be able to use it to dynamically switch on and off terms in the model, reduce its complexity and its computational cost.
+
+Downs
+The criteria to deem a mechanistic term negligible/active is somehow arbritrary.       
+
+
+#Cost
+N/A
+
+#Time
+
+2 months
+
+#Success
+
+Midterm
+In the next two months, Hyperion should be able to provide an output (i.e., when every term is considered negligible/active= for all the models I am working 
+with: the ecosphere, the coinfection model, and the concatenated Lotka-Volterra models.
+
+Final
+Hyperion should be able to provide an output for every ODE-based model below a certain complexity (N state variables and M mechanistic terms)
+Hyperion should be fully accesible on this repository
+
+*Hyperion is considered to be the god of the observation in the Greek Mythology
+
+[1]. Peter Turchin book
