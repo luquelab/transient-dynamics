@@ -1,4 +1,4 @@
-# Luque Lab project template
+# Theta Dynamic Model For Observational Principle Normalization
 
 ## WHAT
 This is a tool that follows the protocol for FODAM (Finite Observational Dynamic Analysis Method) which was first proposed in the Manuscript Emerging dynamic regimes and tipping points from finite empirical principles by Sergio Cobo-Lopez, Matthew Witt, Forest L. Rohwer, and Antoni Luque (2023). This tool is made independently from the manuscript's tool, using a conditional variable (theta) that is either equivalent to one under the condition that it's corresponding process weight is above the threshold (1) at a given time or zero if the weight is below the threshold. This allows the tool to eliminate non-significant processes at given points producing a adaptive model comparable to that of the full model (in this case the Lotka-Volterra Predator-Prey model).
