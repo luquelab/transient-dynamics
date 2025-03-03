@@ -5,9 +5,6 @@ This is a tool that follows the protocol for FODAM (Finite Observational Dynamic
 
 With this tool we hope to further validate the findings of the manuscript and allow for a more comprehensive interpretation of dynamical models, one that would allow one to make both predictions and understand fully what variables are most pertinent in causing shifts in agents levels. We will continue to update this tool and expand it to other dynamic systems such as the SIR model, Lotka-Volterra Competitor model, and exploring phage decay.
 
-## WHO
-The template was originally concieved by Antoni Luque based on recommendations from Noble PLoS Comp Biol 2009, Wilson et al PLoS Comp Biol 2017, and Briney "Data Management for Researchers" (2015), Hunt and Thomas "The Pragmatic Programmer: Your Journey to Mastery" (2019 2nd ed).
-
 ## CONTRIBUTORS
 This tool was produced by @luquelab, inspired by the original manuscript's repository (needle-finder) by Sergio Cobo-López. The main contributors are Lucas J. Carbajal and Antoni Luque, with additional assistance and guidance provided by the rest of the members in the Luque Lab.
 
