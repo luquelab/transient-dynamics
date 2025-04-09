@@ -1,4 +1,4 @@
-# Theta Dynamic Model For Observational Principle Normalization
+# Transient Dynamics Through Observational Principle Normalization
 
 ## WHAT
 transient-dynamics.ipynb is a Jupyter notebook that generates a simulation of a Lotka-Volterra predator-prey system, investigating finite observational principles by calculating the weight per process and classifying it as relevant or irrelevant based upon the inherent observational window set by the user. The inputs for the notebook involve the characteristics of the phage and bacteria population, the observer's observational time, and the ability to perceive change (observer's tolerance). The outputs of the notebook include population, weight, and relative error figures, alongside an Excel file output for all array-like variables produced during analysis and a text file for the float variables produced in calculations.
