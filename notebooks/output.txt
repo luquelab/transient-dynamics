@@ -1,2 +1,0 @@
- Time Observed  Bacterial Growth Rate  Phage Adsorption Rate  Burst Size  Phage Decay Rate  Threshold  Reference Level                                              Tipping Points         Tipping Points for Burst Process Tipping Points for Predation Process
-            14                    0.9           3.000000e-08          50            0.0015        1.0              0.1 [8.392439243924393, 1.7347734773477348, 10.583658365836584] [1.7347734773477348, 10.583658365836584]                  [8.392439243924393]
