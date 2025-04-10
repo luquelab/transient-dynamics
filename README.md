@@ -11,7 +11,7 @@ Sergio Cobo-López, Matthew Witt, Lucas J. Carbajal, Forest L. Rohwer, Antoni Lu
 
 Below, we provide a basic description of the notebook and repository. We recommend visiting transient-dynamics.ipynb's online documentation for a more detailed guide to using the notebook.
 
-transient-dynamics.ipynb is under an MIT license. If you use transient-dynamics.ipynb on any scientific or scholarly work, please cite the above reference to support this academic and open-source initiative from the Luque lab.
+**License**:transient-dynamics.ipynb is under an MIT license. If you use transient-dynamics.ipynb on any scientific or scholarly work, please cite the above reference to support this academic and open-source initiative from the Luque lab.
 
 ## CONTRIBUTORS
 This tool was produced by @luquelab, inspired by the original manuscript's repository (needle-finder) by Sergio Cobo-López. The main contributors are Lucas J. Carbajal and Antoni Luque, with additional assistance and guidance provided by the rest of the members in the Luque Lab.
