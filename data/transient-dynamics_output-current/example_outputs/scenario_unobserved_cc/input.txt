@@ -10,5 +10,4 @@ k_cc = 10**9  # the carrying capacity of the environment
 bi_cc = 6*10**5  # the initial population of bacteria
 pi_cc = 6*10**6  # the initial population of phages
 reference_level_cc = 0.10  # the reference level for tipping points
-
 thresholdlevel_cc = 1.0 the threshold level for tipping points
