@@ -1,2 +1,2 @@
-# Data-Folder
-This folder contains the data sets for each parameter set, including the intial parameters, graphs (for population change, processes vs time, weights vs time, and error between the full and adaptive model), and lastly the export of the generated values for the agent, weights and error for each point in time.
+# WHAT
+The folder is divided into two subfolders: standard_model_output and carrying_capacity_model_output, which store outputs from the standard Lotka-Volterra model and the Lotka-Volterra model with carrying capacity, respectively. This folder contains data sets for each parameter set, including initial parameters, graphs (population change, processes vs time, weights vs time, and error between the full and adaptive model), and exports of generated values for agents, weights, and errors at each time point. Additionally, data_output_dict.md explains the variables of the Excel files within both subfolders.
