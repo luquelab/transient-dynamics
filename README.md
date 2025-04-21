@@ -7,6 +7,8 @@ The quickest way to use transient-dynamics.ipynb is by running it in a Google Co
 
 The methodology and application of transient-dynamics.ipynb are available in a published pre-print on the bioRxiv pre-print server:
 
+![conceptual_figure](results/transient-dynamics-generated/png/fig1_conceptual.png)
+
 Sergio Cobo-López, Matthew Witt, Lucas J. Carbajal, Forest L. Rohwer, Antoni Luque. "Emerging dynamic regimes and tipping points from finite empirical principles." bioRxiv 2023.12.27.573307; doi: https://doi.org/10.1101/2023.12.27.573307
 
 Below, we provide a basic description of the notebook and repository. We recommend visiting transient-dynamics.ipynb's online documentation for a more detailed guide to using the notebook.
@@ -29,10 +31,10 @@ FOLDER: /data
 --> This folder contains the raw data associated with the project and the potential references.
 
 FOLDER: /doc
---> This folder contains the manuscript, digital copies of the cited references, figures, and other associated files for publication.
+--> This folder contains the manuscript, digital copies of the cited references, a tutorial file, and other associated files for publication.
 
 FOLDER: /results
---> This folder contains the results, performance analysis, and commented references associated with the project.
+--> This folder contains the results, compiled and post-production edited figures of the project.
 
 
 The syntax of markdown files (.md) is CommonMark unless specified otherwise (https://commonmark.org/help/)
