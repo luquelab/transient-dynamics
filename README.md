@@ -7,7 +7,7 @@ The quickest way to use transient-dynamics.ipynb is by running it in a Google Co
 
 The methodology and application of transient-dynamics.ipynb are available in a published pre-print on the bioRxiv pre-print server:
 
-![conceptual_figure](theta_dynamics_code/results/transient-dynamics-generated/png/figure_1_conceptual.png)
+![conceptual_figure](results/transient-dynamics-generated/png/figure_1_conceptual.png)
 
 Sergio Cobo-López, Matthew Witt, Lucas J. Carbajal, Forest L. Rohwer, Antoni Luque. "Emerging dynamic regimes and tipping points from finite empirical principles." bioRxiv 2023.12.27.573307; doi: https://doi.org/10.1101/2023.12.27.573307
 
