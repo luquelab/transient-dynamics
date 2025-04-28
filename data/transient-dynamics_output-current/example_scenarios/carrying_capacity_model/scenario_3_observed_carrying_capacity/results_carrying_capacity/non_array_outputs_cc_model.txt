@@ -1,0 +1,2 @@
+ Time Observed  Bacterial Growth Rate  Bacterial Carrying Capacity  Phage Adsorption Rate  Burst Size  Phage Decay Rate  Threshold  Reference Level Tipping Points Tipping Points for Burst Process Tipping Points for Predation Process
+         30000                    0.1                   1000000000           3.000000e-09          50               0.1        1.0              0.1             []                               []                                   []
