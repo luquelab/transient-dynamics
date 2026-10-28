@@ -52,6 +52,6 @@ if __name__ == "__main__":
         print(f"{model} n={n}: {time.time() - t0:.0f} s | completed per alpha: " + ", ".join(f"{a:g}:{c}" for a, c in done.items()), flush=True)
         if done.min() >= TARGET:
             break
-    out = os.path.join(HERE, "tables", f"lhs_{model}_n{n}_seed{seed}.csv")
+    out = os.path.join(HERE, "tables", f"lhs_{model}_n{n}_seed{seed}.csv.gz")
     df.to_csv(out, index=False)
     print("saved", out, "| solver failures:", int((df.status == "solver failed").sum()), flush=True)

@@ -13,13 +13,18 @@ plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["Arial", "
                      "svg.fonttype": "none", "pdf.fonttype": 42, "font.size": 7, "axes.labelsize": 7, "xtick.labelsize": 6,
                      "ytick.labelsize": 6, "legend.fontsize": 6, "axes.linewidth": 0.6, "xtick.major.width": 0.6,
                      "ytick.major.width": 0.6, "xtick.major.size": 2.5, "ytick.major.size": 2.5, "axes.spines.top": False,
-                     "axes.spines.right": False})
+                     "axes.spines.right": False, "mathtext.fontset": "custom", "mathtext.rm": "Liberation Sans",
+                     "mathtext.it": "Liberation Sans:italic", "mathtext.bf": "Liberation Sans:bold", "mathtext.default": "regular"})
 INK, INK2, MUTED, GRID = "#0b0b0b", "#52514e", "#898781", "#e1e0d9"
 BLUE, ORANGE, LIGHT = "#2a78d6", "#eb6834", "#cfe0f6"
 FLOOR = 1e-8          # errors below this (including exact zeros) are drawn at the floor, labelled "0"
 ALPHA_A = 0.1
 
 def _err_for_log(e): return np.maximum(e, FLOOR)
+
+def pow10(k):
+    """10^k typeset with the body font (mathtext set to Liberation Sans, an Arial metric clone)."""
+    return "1" if k == 0 else rf"$10^{{{int(k)}}}$"
 
 def panel_a(ax, s, P):
     e = s.mean_err.to_numpy(); pos = e[e > 0]; nz = int((e == 0).sum())
@@ -29,17 +34,16 @@ def panel_a(ax, s, P):
     ticks = list(range(lo, 3, 2 if 2 - lo > 6 else 1))
     if nz:  # exact zeros: separate bar left of the axis range
         ax.bar(lo - 1, nz, width=0.6, color=MUTED, edgecolor="white", linewidth=0.4)
-        ax.set_xticks([lo - 1] + ticks); ax.set_xticklabels(["0"] + [rf"$10^{{{k}}}$" for k in ticks])
+        ax.set_xticks([lo - 1] + ticks); ax.set_xticklabels(["0"] + [pow10(k) for k in ticks])
         ax.set_xlim(lo - 1.6, 2.2)
     else:
-        ax.set_xticks(ticks); ax.set_xticklabels([rf"$10^{{{k}}}$" for k in ticks]); ax.set_xlim(lo - 0.2, 2.2)
+        ax.set_xticks(ticks); ax.set_xticklabels([pow10(k) for k in ticks]); ax.set_xlim(lo - 0.2, 2.2)
     ax.axvline(1, color=ORANGE, lw=0.9)                      # 10 % = observer tolerance alpha = 0.1
     med = np.median(e); ax.axvline(np.log10(max(med, FLOOR)), color=INK2, lw=0.7, ls=(0, (3, 2)))
-    top = ax.get_ylim()[1] * 1.18; ax.set_ylim(0, top)
+    top = ax.get_ylim()[1] * 1.45; ax.set_ylim(0, top)
     ax.text(1.06, top * 0.98, "tolerance\n(10%)", color=ORANGE, fontsize=6, va="top", ha="left")
     ax.text(np.log10(max(med, FLOOR)) - 0.08, top * 0.98, f"median\n{med:.2g}%", color=INK2, fontsize=6, va="top", ha="right")
-    within = 100 * np.mean(e <= 10)
-    ax.text(0.02, 0.62, f"n = {len(e)}\n{within:.1f}% of runs ≤ 10%", transform=ax.transAxes, fontsize=6, color=INK2, va="top")
+    ax.text(0.02, 0.78, f"{int(np.sum(e <= 10)):,} of {len(e):,} runs\nwithin 10%", transform=ax.transAxes, fontsize=6, color=INK2, va="top")
     ax.set_xlabel("Mean combined relative error (%)"); ax.set_ylabel("Number of runs")
 
 def panel_b(ax, s, P):
@@ -65,9 +69,14 @@ def panel_c(ax_top, ax_bot, by_alpha, P):
     means = [by_alpha[a].mean_err.mean() for a in alphas]
     ax_top.plot(x, np.log10(_err_for_log(np.array(means))), "D", ms=2.6, color=INK, zorder=4, label="mean")
     ax_top.plot(x, np.log10(100 * np.array(alphas)), color=ORANGE, lw=0.9, ls=(0, (3, 2)), label="tolerance (100·α %)")
-    lo = int(np.log10(FLOOR)); yt = list(range(lo, 3, 2))
-    ax_top.set_yticks(yt); ax_top.set_yticklabels(["0"] + [rf"$10^{{{k}}}$" for k in yt[1:]]); ax_top.set_ylim(lo - 0.5, 2.6)
-    ax_top.set_ylabel("Mean error (%)"); ax_top.legend(loc="upper left", frameon=False, handlelength=1.4, borderaxespad=0.1)
+    lo = int(np.log10(FLOOR))
+    hi = max(2.0, max(np.log10(d.max()) for d in data), float(np.log10(_err_for_log(np.array(means))).max()))
+    step = 2 if hi - lo <= 12 else 4
+    yt = list(range(lo, int(np.ceil(hi)) + 1, step))
+    ax_top.set_yticks(yt); ax_top.set_yticklabels(["0"] + [pow10(k) for k in yt[1:]])
+    ax_top.set_ylim(lo - 0.5, hi + 0.2 * (hi - lo) + 1)  # every value in range, plus room for the legend
+    ax_top.set_ylabel("Mean error (%)")
+    ax_top.legend(loc="upper left", frameon=False, handlelength=1.4, borderaxespad=0.1, ncol=2, columnspacing=0.8)
     ax_top.tick_params(labelbottom=False)
     m = np.array([by_alpha[a][f"frac_{P}_processes"].mean() for a in alphas])
     sd = np.array([by_alpha[a][f"frac_{P}_processes"].std() for a in alphas])
@@ -76,20 +85,23 @@ def panel_c(ax_top, ax_bot, by_alpha, P):
     ax_bot.set_ylim(-0.05, 1.05); ax_bot.set_yticks([0, 0.5, 1])
     ax_bot.set_ylabel(f"Time with all {P}\nrelevant (fraction)")
     for a_ in (ax_top, ax_bot): a_.set_xlim(x[0] - 0.5, x[-1] + 0.5)
-    ax_bot.set_xticks(x); ax_bot.set_xticklabels([rf"$10^{{{int(v)}}}$" if v else "1" for v in x])
+    ax_bot.set_xticks(x); ax_bot.set_xticklabels([pow10(v) for v in x])
     ax_bot.set_xlabel("Observer tolerance, α")
 
-def letter(ax, s): ax.text(-0.3, 1.04, s, transform=ax.transAxes, fontsize=9, fontweight="bold", va="bottom", ha="left")
+def letter(fig, ax, s, y=0.97):  # panel letters on one baseline, left of each panel's y-axis label
+    fig.text(ax.get_position().x0 - 0.055, y, s, fontsize=9, fontweight="bold", va="top", ha="left")
 
 def save(fig, stem):
     for ext in ("png", "pdf", "svg"):
         fig.savefig(f"{stem}.{ext}", dpi=300 if ext == "png" else None)
     plt.close(fig)
+    svg = open(f"{stem}.svg").read()  # name Arial first everywhere, so editors render the text in Arial
+    open(f"{stem}.svg", "w").write(svg.replace("font-family: 'Liberation Sans'", "font-family: 'Arial', 'Liberation Sans', sans-serif"))
 
 if __name__ == "__main__":
     model, which = sys.argv[1], sys.argv[2]
     P = len(models.PROCESSES[model])
-    sel = pd.read_csv(os.path.join(HERE, "tables", f"{model}_analysis_sets.csv"))
+    sel = pd.read_csv(os.path.join(HERE, "tables", f"{model}_analysis_sets.csv.gz"))
     sel = sel[sel.set == which]
     by_alpha = {a: g for a, g in sel.groupby("alpha")}
     s01 = by_alpha[ALPHA_A]
@@ -101,7 +113,7 @@ if __name__ == "__main__":
     gc = GridSpecFromSubplotSpec(2, 1, subplot_spec=gs[2], hspace=0.12, height_ratios=[1.35, 1])
     ax_c1, ax_c2 = fig.add_subplot(gc[0]), fig.add_subplot(gc[1])
     panel_a(ax_a, s01, P); panel_b(ax_b, s01, P); panel_c(ax_c1, ax_c2, by_alpha, P)
-    for ax, l in ((ax_a, "a"), (ax_b, "b"), (ax_c1, "c")): letter(ax, l)
+    for ax, l in ((ax_a, "a"), (ax_b, "b"), (ax_c1, "c")): letter(fig, ax, l)
     save(fig, stem + "_figure")
     # individual panels
     for name, w, fn in (("panel_a", 2.4, lambda f: panel_a(f.add_subplot(111), s01, P)),
