@@ -106,4 +106,10 @@ python figure.py standard completed
 Run `figure.py` likewise for the other three combinations of model and set.
 
 # NOTE ON THE NOTEBOOK
-In the carrying-capacity section of the notebook, code cell 71 computes the combined error as `relative_error_percentage_finder(p_rel_error_percent_cc, ...)`, which is the phage error multiplied by 100 again. It should be the average of the bacteria and phage errors, as in the standard model. Its `rel_error_com_per` output is therefore wrong; the bacteria and phage columns are correct. This analysis computes the combined error directly and is not affected.
+Before 2026-10-29, the notebook's carrying-capacity combined error (`rel_error_com_per` in `array_outputs_cc`) was wrong. Code cell 71 computed it as `relative_error_percentage_finder(p_rel_error_percent_cc, ...)`, which is the phage error multiplied by 100 again. The bacteria and phage error columns were correct.
+
+Fixed on 2026-10-29. The carrying-capacity section now calls `combined_error_finder` (the average of the bacteria and phage errors, as in the standard model). `combined_error_finder` itself also used to append to the global `p_com_relative_error_percent` instead of a fresh list, so calling it a second time would have doubled the list; it now builds its own list.
+
+The fix was verified by running the notebook through the carrying-capacity section (τ = 300 h): the combined error is 0.9750869526%, matching this analysis. The standard-model output is unchanged and identical, column by column, to the stored scenario 3 (transient) results.
+
+This analysis computes the error directly and was never affected.
