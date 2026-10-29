@@ -36,16 +36,27 @@ The two models are compared up to the earlier stop time. A run is "completed" if
 # RESULTS (α = 0.1)
 | | Standard, completed | Standard, stopped | Carrying capacity, completed | Carrying capacity, stopped |
 |---|---|---|---|---|
-| Runs analysed | 1,000 | 6,290 | 1,000 | 3,513 |
+| Runs analysed | 1,000 | 6,290 | 999 (+1 extreme outlier excluded) | 3,513 |
 | Median error | 0.68% | 0.0035% | 0.77% | 0.0065% |
 | 90th percentile | 2.2% | 0.28% | 2.9% | 0.38% |
-| Maximum | 13% | 12% | 8.6×10⁵%* | 12% |
+| Maximum | 13% | 12% | 276% | 12% |
 | Runs within 10% | 997 | 6,289 | 988 | 3,511 |
 | Mean fraction of time with all processes relevant | 0.19 | 0.27 | 0.13 | 0.08 |
 | All processes relevant for the whole window | 9.5% (7.8–11.5%) | — | 6.3% (5.0–8.0%) | — |
 | … as a share of all samples | 0.96% (0.82–1.13%) | | 1.29% (1.06–1.56%) | |
 
-\*A few carrying-capacity runs have oscillations whose troughs fall well below 1 per ml without reaching the 10⁻³ floor. There, a small timing shift between the two models gives very large relative errors; the worst run has a mean of 8.6×10⁵%, which pulls the carrying-capacity mean to 865%. Medians and percentiles are the robust summaries.
+**Extreme outliers.** Within each model, α and set, a run is flagged by Tukey's far-out test on log₁₀(mean error): it is an outlier if the value is above Q3 + 3·IQR. Flagged runs are excluded from all statistics and shown in ochre in the figures.
+
+Only 5 runs are flagged, all in the carrying-capacity model and all completed: 1 at α = 0.1 (8.6×10⁵%) and 4 at α = 1. They are the runs that pushed the means above the tolerance line:
+- at α = 0.1, the carrying-capacity mean is 1.65% without the outlier and 865% with it;
+- at α = 1, it is 13.6% without the outliers and 9.3×10⁵% with them.
+
+**What the runs above tolerance have in common** (`scripts/investigate_outliers.py`, `tables/outlier_diagnostics.csv`). Each was re-simulated and compared with 150 random runs within tolerance.
+- Runs that completed the window are long-window oscillations. The median observation time is 5,000–10,000 h, against about 10–20 h for runs within tolerance. Over that window the phage oscillate 15–70 times and the set of relevant processes switches 30–190 times, against 0–1 switches for runs within tolerance. A small timing shift between the Boolean and full models builds up from cycle to cycle.
+- Their troughs bring populations down to a few individuals per ml, still above the 10⁻³ floor. Relative errors at these troughs are very large (the worst run reaches 0.7 vs 3.4×10⁶ phage per ml).
+- None comes close to the upper bounds: maxima are about 10⁵–10⁷ bacteria and 10⁸–10⁹ phage per ml.
+- The exception is the standard model at α = 1. Its 3 runs above tolerance are short (about 3 h) with fast growth and decay, and the coarse tolerance simply ignores sizeable changes.
+- Stopped runs above tolerance get most of their error (55–75%) from time points below 1 per ml, just before they hit the floor.
 
 **Across all α:** the mean error stays at or below the observer tolerance (100·α %) in at least 98.5% of completed runs, for every α and both models (column `frac_err_within_alpha` in the summary tables). As α decreases, the fraction of time with all processes relevant rises towards 1, and the Boolean model converges to the full model.
 
@@ -67,6 +78,7 @@ All stopped runs stop at the lower bound.
 - `run_lhs.py <standard|cc>`: the progressive Latin hypercube sweep.
 - `analyze.py`: the per-α statistics and the analysis sets.
 - `figure.py <standard|cc> <completed|stopped>`: the manuscript figures.
+- `investigate_outliers.py`: re-simulates the runs above tolerance and compares their trajectories with runs within tolerance.
 
 **`tables/`**
 - `lhs_*_seed2026.csv.gz`: every sample × α, the raw sweep.
@@ -76,10 +88,10 @@ All stopped runs stop at the lower bound.
 
 **`figures/`** contains `<model>_<set>_figure.*` (three panels, 7.2 in wide) and each panel separately (`_panel_a/b/c`), in PNG (300 dpi), PDF and SVG. The panels are:
 - a: error distribution at α = 0.1;
-- b: fraction of time with each number of relevant processes at α = 0.1 (violin, box and 200 random runs);
-- c: the α sweep, with errors at the top (box plots, mean ◆, tolerance line) and the mean ± SD fraction of time with all processes relevant at the bottom.
+- b: fraction of time with each number of relevant processes at α = 0.1 (violins and 200 random runs; n at the top is the number of runs that spend any time in that state);
+- c: the α sweep, with errors at the top (box plots, mean ◆, tolerance line, extreme outliers in ochre) and the mean ± SD fraction of time with all processes relevant at the bottom.
 
-Fonts are Arial at 6–9 pt. The SVG text names Arial and stays editable. PNG and PDF are rendered and embedded with Liberation Sans, which has the same letter widths as Arial (Arial is not available in the cloud environment).
+Each panel letter is followed by a short description. Colours are neutral greys matched to the manuscript figures (`#7f8080`, `#505151`, `#231f20`), with ochre `#e5a41c` (also from the manuscript palette) for extreme outliers; red and blue are left for phage and bacteria. Fonts are Arial at 6–9 pt. The SVG text names Arial and stays editable. PNG and PDF are rendered and embedded with Liberation Sans, which has the same letter widths as Arial (Arial is not available in the cloud environment).
 
 **Rerun** (from `scripts/`; package versions as in `../alpha-robustness/requirements.txt`):
 
