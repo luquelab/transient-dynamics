@@ -72,6 +72,25 @@ Only 5 runs are flagged, all in the carrying-capacity model and all completed: 1
 
 All stopped runs stop at the lower bound.
 
+# PRE-RELEVANCE DIAGNOSTICS (α = 0.1)
+**Hypothesis tested.** Runs above tolerance spend a long time with a process just below the threshold (pre-relevant, 0.1 ≤ w < 1). Such a process is ignored, yet its effect accumulates.
+
+**Approach.** `scripts/prerelevance.py` computes pre-relevance metrics from the transient-model weights for all 2,000 completed runs; results are in `tables/prerelevance_alpha0.1.csv`. `scripts/outlier_trajectories.py` draws, for each of the 15 runs above tolerance:
+- the trajectories (full model vs transient model),
+- the combined error over time,
+- the number of relevant processes in each model,
+- each process's weight over time, with the pre-relevant zone shaded.
+
+Runs with more than 20 switches get an extra zoomed view of their last 10 switches. These are in `figures/outlier_diagnostics/`, with all runs in `all_runs_above_tolerance.pdf` and the summary in `summary_prerelevance_test.png`.
+
+**Findings.**
+- **Pre-relevance sets the general error level.** Across all runs, the error correlates with the neglected-effect index (Spearman ρ = 0.70–0.71) and with the time spent pre-relevant (ρ = 0.61–0.64).
+- **Pre-relevance alone does not single out the runs above tolerance.** Many runs within tolerance also spend their whole window with a process pre-relevant (AUC 0.43–0.55). The runs above tolerance are instead marked by many process switches (AUC 0.87) and long windows (AUC 0.88–0.90).
+- **The trajectories show that a pre-relevant process causes trouble when the dynamics amplify its neglected effect.** Two mechanisms appear:
+  - *Sustained pre-relevance with a long decline* (e.g. standard run 7773). Phage decay stays at w ≈ 0.55 for the whole window and is ignored. The transient model keeps slightly more phage, the extra predation makes its bacteria decline slightly faster, and the gap compounds over ten orders of magnitude of decline.
+  - *Oscillation phase drift* (e.g. carrying-capacity run 682, 351 switches). The carrying-capacity term reaches the pre-relevant zone (w ≈ 0.4) at every bacterial peak, and predation crosses the threshold every cycle. The transient model lags slightly in each cycle, and the lag builds up to about 10 h after about 170 cycles.
+- **A lower tolerance fixes these runs.** With α = 0.01, 14 of the 15 runs are within 10%; with α = 0.001, all 15 are. This supports the proposed remedy: monitor pre-relevant processes and recommend a lower α. The trigger should combine pre-relevance with amplification (many switches or cycles, or a long monotonic decline), rather than use time spent pre-relevant alone.
+
 # FILES
 **`scripts/`**
 - `models.py`: the two models, the stopping bounds and the per-run metrics.
@@ -79,6 +98,7 @@ All stopped runs stop at the lower bound.
 - `analyze.py`: the per-α statistics and the analysis sets.
 - `figure.py <standard|cc> <completed|stopped>`: the manuscript figures.
 - `investigate_outliers.py`: re-simulates the runs above tolerance and compares their trajectories with runs within tolerance.
+- `prerelevance.py`, `outlier_trajectories.py`: the pre-relevance test and the per-run diagnostic figures.
 
 **`tables/`**
 - `lhs_*_seed2026.csv.gz`: every sample × α, the raw sweep.

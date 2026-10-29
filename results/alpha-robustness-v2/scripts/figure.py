@@ -20,7 +20,8 @@ plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["Arial", "
 INK, DARK, MID, LIGHT, PALE, ACCENT = "#231f20", "#505151", "#7f8080", "#c9caca", "#e6e6e6", "#e5a41c"
 FLOOR = 1e-8          # errors below this (including exact zeros) are drawn at the floor, labelled "0"
 ALPHA_A = 0.1
-TITLES = {"a": "Mean error (α = 0.1)", "b": "Relevant processes over time (α = 0.1)", "c": "Robustness across tolerances (α)"}
+TITLES = {"a": "Robustness of transient model (α = 0.1)", "b": "Variability of relevant processes (α = 0.1)",
+          "c": "Robustness across tolerances (α)"}
 
 def _err_for_log(e): return np.maximum(e, FLOOR)
 
@@ -105,12 +106,14 @@ def panel_c(ax_top, ax_bot, by_alpha, P):
     ax_bot.set_xticks(x); ax_bot.set_xticklabels([pow10(v) for v in x])
     ax_bot.set_xlabel("Observer tolerance, α")
 
-def letter(fig, ax, s, y=0.93):
-    """Bold panel letter followed by a short description, on one baseline left of the panel's y-axis label."""
-    x0 = ax.get_position().x0 - 0.055
-    t = fig.text(x0, y, s, fontsize=9, fontweight="bold", va="baseline", ha="left")
+def letter(fig, ax, s, gap_pt=8):
+    """'a)' in bold followed by the panel description at the same size, as in the manuscript figures;
+    the baseline sits gap_pt points above the top of the panel's frame, starting left of the y-axis label."""
+    y = ax.get_position().y1 + gap_pt / (fig.get_figheight() * 72)
+    x0 = ax.get_position().x0 - 0.06
+    t = fig.text(x0, y, f"{s})", fontsize=8.5, fontweight="bold", va="baseline", ha="left", color=INK)
     fig.canvas.draw(); bb = t.get_window_extent().transformed(fig.transFigure.inverted())
-    fig.text(bb.x1 + 0.006, y, TITLES[s], fontsize=7.5, va="baseline", ha="left", color=INK)
+    fig.text(bb.x1 + 0.004, y, TITLES[s], fontsize=8.5, va="baseline", ha="left", color=INK)
 
 def save(fig, stem):
     for ext in ("png", "pdf", "svg"):
@@ -128,8 +131,8 @@ if __name__ == "__main__":
     s01 = by_alpha[ALPHA_A]
     stem = os.path.join(HERE, "figures", f"{model}_{which}")
     # combined figure
-    fig = plt.figure(figsize=(7.2, 2.6))
-    gs = GridSpec(1, 3, figure=fig, width_ratios=[1, 1.1, 1], wspace=0.5, left=0.07, right=0.99, bottom=0.17, top=0.86)
+    fig = plt.figure(figsize=(7.2, 2.5))
+    gs = GridSpec(1, 3, figure=fig, width_ratios=[1, 1.1, 1], wspace=0.5, left=0.07, right=0.99, bottom=0.17, top=0.9)
     ax_a, ax_b = fig.add_subplot(gs[0]), fig.add_subplot(gs[1])
     gc = GridSpecFromSubplotSpec(2, 1, subplot_spec=gs[2], hspace=0.12, height_ratios=[1.35, 1])
     ax_c1, ax_c2 = fig.add_subplot(gc[0]), fig.add_subplot(gc[1])
