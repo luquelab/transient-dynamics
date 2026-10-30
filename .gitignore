@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editor backups
+*~
+\#*\#
+
+# Notebook outputs (regenerated on each run)
+data/transient-dynamics_output-current/data_output/generated-data/

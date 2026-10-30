@@ -1,5 +1,5 @@
 # WHAT
-Revised robustness analysis of the adaptive Boolean model against the full model, for the standard phage-bacteria (Lotka-Volterra) model and the model with bacterial carrying capacity. It supersedes the exploratory analysis in `../alpha-robustness/`.
+Revised robustness analysis of the adaptive Boolean model against the full model, for the standard phage-bacteria (Lotka-Volterra) model and the model with bacterial carrying capacity. It supersedes an exploratory analysis that was removed from the working tree (available in the history of `main`, e.g. commit c62f393).
 
 # WHEN
 2026-10-29
@@ -115,7 +115,7 @@ Runs with more than 20 switches get an extra zoomed view of their last 10 switch
 
 Each panel letter is followed by a short description. Colors are neutral grays matched to the manuscript figures (`#7f8080`, `#505151`, `#231f20`), with ochre `#e5a41c` (also from the manuscript palette) for extreme outliers; red and blue are left for phage and bacteria. Fonts are Arial at 6–9 pt. The SVG text names Arial and stays editable. PNG and PDF are rendered and embedded with Liberation Sans, which has the same letter widths as Arial (Arial is not available in the cloud environment).
 
-**Rerun** (from `scripts/`; package versions as in `../alpha-robustness/requirements.txt`):
+**Rerun** (from `scripts/`; package versions as in `requirements.txt`):
 
 ```bash
 python run_lhs.py standard 2026
