@@ -1,4 +1,7 @@
 # WHAT
-This folder contains the results, including figures generated from further analysis of the raw data. These figures have been edited outside of Python code to enhance accessibility and aid interpretation for readers of the manuscript. The content is divided between two subfolders: **sergio_results-legacy**, which contains results generated from the legacy code for previous manuscripts, and **transient-dynamics-generated**, which contains results generated from the current Jupyter notebook for the current version of the manuscript. The results within the  **transient-dynamics-generated** are divided into two folders: png and svg, based on the format of their storage. 
+This folder contains the results of the project.
 
-The **alpha-robustness** folder contains the robustness analysis of the adaptive Boolean model (α sweeps per scenario and Latin hypercube sampling of the Table 1 parameter space); see its README.
+- **transient-dynamics-generated**: manuscript figures generated with the Jupyter notebook and edited outside of Python to enhance accessibility, in png and svg formats. Figures 1-5 are the main-text figures; `figure_decay_relevant` and `figure_null_transient` are Supplementary Figures S1 and S2.
+- **alpha-robustness-v2**: robustness analysis of the adaptive Boolean model (Figure 6 and Supplementary Figures S3-S6); see its README.
+
+Results from the earlier version of the project, and the exploratory version of the robustness analysis, are preserved in the `legacy` branch, the `v0.1.0-alpha` pre-release and the history of `main`.

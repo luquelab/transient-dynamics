@@ -1,2 +1,2 @@
-# WHAT 
-This folder contains two folders: **transient-dynamics** and **sergio-legacy**. **sergio-legacy** contains all the files that were previously associated with the generation for the previous versions of the manuscripts including figures, drafts for sections, and references. **transient-dynamics** contains the current manuscript in PDF form, changelog for current version of repository, and [tutorial.md](theta_dynamics_code/docs/transient-dynamics/tutorial.md) file explaining the usage of the Jupyter notebook.
+# WHAT
+This folder contains **transient-dynamics**, with the changelog of the repository and the [tutorial](transient-dynamics/tutorial.md) explaining how to use the Jupyter notebook. The manuscript is available as a preprint on bioRxiv: https://doi.org/10.1101/2023.12.27.573307. Documents from the earlier versions of the manuscript are preserved in the `legacy` branch and the `v0.1.0-alpha` pre-release.

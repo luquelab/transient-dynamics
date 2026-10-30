@@ -25,16 +25,22 @@ End: Ongoing
 
 ## FILES & FOLDERS
 FOLDER: /notebooks
---> This folder contains the Jupyter notebook and former python script to run simulations on Lotka-Volterra phage-bacteria model.
+--> This folder contains the Jupyter notebook to run simulations of the Lotka-Volterra phage-bacteria model, with and without carrying capacity.
 
 FOLDER: /data
---> This folder contains the raw data associated with the project and the potential references.
+--> This folder contains the example scenarios used in the manuscript (inputs and reference outputs) and the folder where the notebook writes its outputs.
 
 FOLDER: /docs
---> This folder contains the manuscript, digital copies of the cited references, a tutorial file, and other associated files for publication.
+--> This folder contains the tutorial for the notebook and the changelog. The manuscript is available as a preprint on bioRxiv (https://doi.org/10.1101/2023.12.27.573307).
 
 FOLDER: /results
---> This folder contains the results, compiled and post-production edited figures of the project.
+--> This folder contains the manuscript figures and the robustness analysis of the adaptive Boolean model.
+
+FOLDER: /src
+--> Reserved for the Python package that the notebook and analyses will share in a future version.
+
+LEGACY MATERIAL
+--> Code, data, results and documents from the earlier version of the project (needle-finder) are preserved in the `legacy` branch and the `v0.1.0-alpha` pre-release.
 
 
 The syntax of markdown files (.md) is CommonMark unless specified otherwise (https://commonmark.org/help/)
