@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: "transient-dynamics: Emerging transient dynamics at finite observation scales"
+abstract: >-
+  Code, data and analyses for an observational framework that identifies the
+  processes relevant to a finite observer, predicts switching thresholds and
+  dynamic regimes, and compares an adaptive Boolean model that simulates only
+  relevant processes with the full model, applied to phage-bacteria
+  (Lotka-Volterra) dynamics with and without bacterial carrying capacity.
+authors:
+  - family-names: Cobo-López
+    given-names: Sergio
+    orcid: "https://orcid.org/0000-0002-1089-6205"
+    affiliation: "San Diego State University; Universitat Rovira i Virgili"
+  - family-names: Carbajal
+    given-names: Lucas J.
+    orcid: "https://orcid.org/0009-0000-6891-0711"
+    affiliation: "University of Miami"
+  - family-names: Witt
+    given-names: Matthew
+    affiliation: "San Diego State University; Holland Artificial Intelligence"
+  - family-names: Rohwer
+    given-names: Forest L.
+    orcid: "https://orcid.org/0000-0003-1548-5429"
+    affiliation: "San Diego State University"
+  - family-names: Luque
+    given-names: Antoni
+    orcid: "https://orcid.org/0000-0002-5817-4914"
+    affiliation: "University of Miami"
+version: 0.2.1-alpha
+license: MIT
+repository-code: "https://github.com/luquelab/transient-dynamics"
+keywords:
+  - transient dynamics
+  - observational framework
+  - dynamic regimes
+  - Boolean model
+  - phage-bacteria dynamics
+  - Lotka-Volterra
+references:
+  - type: article
+    title: "Emerging dynamic regimes and tipping points from finite empirical principles"
+    authors:
+      - family-names: Cobo-López
+        given-names: Sergio
+      - family-names: Witt
+        given-names: Matthew
+      - family-names: Carbajal
+        given-names: Lucas J.
+      - family-names: Rohwer
+        given-names: Forest L.
+      - family-names: Luque
+        given-names: Antoni
+    journal: bioRxiv
+    year: 2023
+    doi: 10.1101/2023.12.27.573307

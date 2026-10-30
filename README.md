@@ -18,6 +18,8 @@ Below, we provide a basic description of the notebook and repository. We recomme
 ## CONTRIBUTORS
 This tool was produced by @luquelab, inspired by the original manuscript's repository (needle-finder) by Sergio Cobo-López. The main contributors are Lucas J. Carbajal and Antoni Luque, with additional assistance and guidance provided by the rest of the members in the Luque Lab.
 
+**AI assistance:** parts of the code and analyses (`results/alpha-robustness-v2`) were developed with the assistance of Claude (Anthropic) via Claude Code; all outputs were reviewed and validated by the authors.
+
 ## WHEN
 This is an evolving repository Started: 2024-09-11
 
