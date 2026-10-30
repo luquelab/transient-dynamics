@@ -8,6 +8,9 @@ abstract: >-
   dynamic regimes, and compares an adaptive Boolean model that simulates only
   relevant processes with the full model, applied to phage-bacteria
   (Lotka-Volterra) dynamics with and without bacterial carrying capacity.
+  This release accompanies the revision of the manuscript "Emerging
+  transient dynamics at finite observation scales" for PLOS Computational
+  Biology; the preprint is available on bioRxiv (version 3).
 authors:
   - family-names: Cobo-López
     given-names: Sergio
@@ -28,7 +31,7 @@ authors:
     given-names: Antoni
     orcid: "https://orcid.org/0000-0002-5817-4914"
     affiliation: "University of Miami"
-version: 0.2.1-alpha
+version: 0.2.2-alpha
 license: MIT
 repository-code: "https://github.com/luquelab/transient-dynamics"
 keywords:
@@ -55,4 +58,4 @@ references:
     journal: bioRxiv
     year: 2025
     doi: 10.1101/2023.12.27.573307
-    notes: "Version 3, posted 2025-07-10."
+    notes: "Version 3, posted 2025-07-10. A revised version is under review at PLOS Computational Biology."
