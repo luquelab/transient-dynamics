@@ -1,0 +1,7 @@
+alpha,samples,completed,stopped,stopped_before_2nd_point,solver_failed,stop: Boolean: B below floor,stop: Boolean: P below floor,stop: full: B below floor,stop: full: P below floor
+1e-05,8000,1505,6491,2980,4,773,10,5360,348
+0.0001,8000,1505,6491,2980,4,809,21,5324,337
+0.001,8000,1505,6491,2980,4,874,33,5259,325
+0.01,8000,1505,6491,2980,4,1100,49,5033,309
+0.1,8000,1503,6493,2980,4,1614,114,4521,244
+1.0,8000,1489,6507,2980,4,2328,216,3816,147

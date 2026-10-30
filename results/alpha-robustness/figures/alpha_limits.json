@@ -1,0 +1,62 @@
+{
+ "scenario_1": {
+  "alpha_all": 3.774503886915813e-14,
+  "all_by": "burst",
+  "all_at": 14.0,
+  "alpha_none": 12.6,
+  "none_by": "growth",
+  "weights_ok": true,
+  "bmin": 1.797382803293244e-09,
+  "pmin": 10000.0
+ },
+ "scenario_2": {
+  "alpha_all": 1.0696828712413873e-08,
+  "all_by": "predation",
+  "all_at": 260.0,
+  "alpha_none": 391.95,
+  "none_by": "burst",
+  "weights_ok": true,
+  "bmin": 18.94369378853009,
+  "pmin": 0.4114164889389951
+ },
+ "scenario_3_quasi_equilibrium": {
+  "alpha_all": 5.3648392825807925,
+  "all_by": "burst",
+  "all_at": 44.76447644764477,
+  "alpha_none": 30.0,
+  "none_by": "growth",
+  "weights_ok": true,
+  "bmin": 119218.6507240176,
+  "pmin": 5960933.52258184
+ },
+ "scenario_3_transient": {
+  "alpha_all": 0.00047682532464071134,
+  "all_by": "burst",
+  "all_at": 113.0813081308131,
+  "alpha_none": 30.0,
+  "none_by": "growth",
+  "weights_ok": true,
+  "bmin": 10.59611832534914,
+  "pmin": 529.805918356751
+ },
+ "scenario_4_quasi_static": {
+  "alpha_all": 0.0004160000000000001,
+  "all_by": "growth",
+  "all_at": 0.0,
+  "alpha_none": 0.019500000000000003,
+  "none_by": "burst",
+  "weights_ok": true,
+  "bmin": 996.5221060530405,
+  "pmin": 9999.660712050778
+ },
+ "scenario_4_transient": {
+  "alpha_all": 0.0004160000000000001,
+  "all_by": "growth",
+  "all_at": 0.0,
+  "alpha_none": 16.575000000000003,
+  "none_by": "burst",
+  "weights_ok": true,
+  "bmin": 791.9161794733141,
+  "pmin": 3000.0
+ }
+}
