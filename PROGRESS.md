@@ -12,7 +12,7 @@ Last updated: 2026-10-30
 | Robustness analysis | Done: Figure 6 and Supplementary Figures S3–S6 (`results/alpha-robustness-v2/`) |
 | Notebook | Carrying-capacity combined-error bug fixed and example outputs regenerated (PR #27) |
 | Repository | Legacy material removed from the working tree (PR #28); preserved in the `legacy` branch and the `v0.1.0-alpha` pre-release |
-| Releases | [`v0.2.1-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.1-alpha) (2026-10-30): archived on Zenodo, DOI [10.5281/zenodo.23809339](https://doi.org/10.5281/zenodo.23809339); version to cite for the revised manuscript. Same code and analyses as [`v0.2.0-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.0-alpha) (PRs #27–#30), plus `CITATION.cff` and an AI-assistance acknowledgment (PRs #31–#32). Previous: `v0.1.0-alpha` (before the robustness analysis) |
+| Releases | [`v0.2.2-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.2-alpha) (2026-10-30): **version to cite for the PLOS Computational Biology revision**, DOI [10.5281/zenodo.23810547](https://doi.org/10.5281/zenodo.23810547); cites bioRxiv version 3 and states that it accompanies the revision (PRs #33–#37). Same code and analyses as `v0.2.1-alpha` ([10.5281/zenodo.23809339](https://doi.org/10.5281/zenodo.23809339)) and `v0.2.0-alpha` (PRs #27–#30). Concept DOI, always the latest release: [10.5281/zenodo.23809338](https://doi.org/10.5281/zenodo.23809338). Previous: `v0.1.0-alpha` (before the robustness analysis) |
 | Refactor | Not started; planned as `v0.3.0-alpha` (see Next steps) |
 
 **Versioning plan:** alpha while the code structure and interface change; beta once the package supports other models through a stable, tested interface; `v1.0.0` for a stable public interface.
@@ -51,15 +51,15 @@ Results are for the runs that completed the observational window.
 
 ## Next steps
 
-1. **Finish the manuscript and rebuttal** (in progress). Cite the Zenodo DOI of `v0.2.1-alpha` for the code. Until the refactor:
+1. **Finish the manuscript and rebuttal** (in progress). Cite the Zenodo DOI of `v0.2.2-alpha` (10.5281/zenodo.23810547) for the code. After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
    - do not restructure the notebook: the analysis scripts load its model functions by cell number;
    - if the notebook must change, rerun one analysis script to confirm it still reproduces its reference value;
-   - make revision fixes on the current structure and release them as a patch (`v0.2.2-alpha`).
+   - make revision fixes on the current structure and release them as a patch (`v0.2.3-alpha`).
 2. **Refactor the code:**
    - move the model code into `src/transient_dynamics/` so analyses no longer run notebook cells by number;
    - add regression tests for the example scenarios;
    - switch the notebook to the package;
-   - add `pyproject.toml` and `CITATION.cff`.
+   - add `pyproject.toml` (`CITATION.cff` already exists).
 3. **Explain the results theoretically:** give a heuristic argument for why the error tracks α, with oscillations as the amplifying case.
 4. **Follow-up projects:**
    - test the approach on a larger system to show computational savings;
