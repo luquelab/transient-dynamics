@@ -54,12 +54,12 @@ Results are for the runs that completed the observational window.
 1. **Finish the manuscript and rebuttal** (in progress). Cite the Zenodo DOI of `v0.2.2-alpha` (10.5281/zenodo.23810547) for the code. After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
    - do not restructure the notebook: the analysis scripts load its model functions by cell number;
    - if the notebook must change, rerun one analysis script to confirm it still reproduces its reference value;
-   - make revision fixes on the current structure and release them as a patch (`v0.2.2-alpha`).
+   - make revision fixes on the current structure and release them as a patch (`v0.2.3-alpha`).
 2. **Refactor the code:**
    - move the model code into `src/transient_dynamics/` so analyses no longer run notebook cells by number;
    - add regression tests for the example scenarios;
    - switch the notebook to the package;
-   - add `pyproject.toml` and `CITATION.cff`.
+   - add `pyproject.toml` (`CITATION.cff` already exists).
 3. **Explain the results theoretically:** give a heuristic argument for why the error tracks α, with oscillations as the amplifying case.
 4. **Follow-up projects:**
    - test the approach on a larger system to show computational savings;
