@@ -12,7 +12,10 @@ Last updated: 2026-10-30
 | Robustness analysis | Done: Figure 6 and Supplementary Figures S3–S6 (`results/alpha-robustness-v2/`) |
 | Notebook | Carrying-capacity combined-error bug fixed and example outputs regenerated (PR #27) |
 | Repository | Legacy material removed from the working tree (PR #28); preserved in the `legacy` branch and the `v0.1.0-alpha` pre-release |
-| Refactor | Not started (see Next steps) |
+| Releases | [`v0.2.0-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.0-alpha) (2026-10-30): version used for the revised manuscript (PRs #27–#30). Previous: `v0.1.0-alpha` (before the robustness analysis) |
+| Refactor | Not started; planned as `v0.3.0-alpha` (see Next steps) |
+
+**Versioning plan:** alpha while the code structure and interface change; beta once the package supports other models through a stable, tested interface; `v1.0.0` for a stable public interface.
 
 ## Key results (robustness analysis, α = 0.1)
 
