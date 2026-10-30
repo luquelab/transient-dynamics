@@ -99,6 +99,8 @@ Runs with more than 20 switches get an extra zoomed view of their last 10 switch
 - `figure.py <standard|cc> <completed|stopped>`: the manuscript figures.
 - `investigate_outliers.py`: re-simulates the runs above tolerance and compares their trajectories with runs within tolerance.
 - `prerelevance.py`, `outlier_trajectories.py`: the pre-relevance test and the per-run diagnostic figures.
+- `si_outlier_figure.py <model> <sample> <stem>`: the supplementary outlier figures (S6: carrying-capacity run 178; S7: run 682).
+- `make_docx.js`: builds the Word documents in `manuscript/` (main text: Results, Methods, Figure 6; supplementary: Figures S3–S7). Run with `node make_docx.js`.
 
 **`tables/`**
 - `lhs_*_seed2026.csv.gz`: every sample × α, the raw sweep.
