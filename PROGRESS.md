@@ -82,9 +82,9 @@ Results are for the runs that completed the observational window.
 Newest first. One short entry per work session.
 
 - **2026-10-30:**
-  - added the manuscript Word documents for the robustness analysis and aligned them with the final supplementary figures (S7 dropped);
-  - removed legacy and superseded material (PR #28) and added `CLAUDE.md` and `PROGRESS.md` (PRs #29–#31);
-  - released `v0.2.0-alpha`;
-  - added `CITATION.cff`, connected the repository to Zenodo, and added the AI-assistance acknowledgment and the DOI badge to the README (PRs #32 and #34); released `v0.2.1-alpha`;
-  - updated the preprint reference to bioRxiv version 3, added the PLOS Computational Biology revision note, and released `v0.2.2-alpha` (PRs #35 and #37);
-  - recorded the release DOIs here (PRs #33, #38 and #39).
+  - finished the manuscript Word documents for the robustness analysis, aligned with the final supplementary figures (S7 dropped), and added `CLAUDE.md` (PR #27);
+  - removed legacy and superseded material (PR #28), added `PROGRESS.md` (PR #29) and the default GitHub assignee in `CLAUDE.md` (PR #30);
+  - released `v0.2.0-alpha` and recorded it here (PR #31);
+  - added `CITATION.cff` and the AI-assistance acknowledgment (PR #32), connected the repository to Zenodo, and released `v0.2.1-alpha`; added the DOI badge to the README (PR #34);
+  - updated the preprint reference to bioRxiv version 3 (PR #35), added the PLOS Computational Biology revision note (PR #37), and released `v0.2.2-alpha`;
+  - recorded the release DOIs and revision-period guidelines here (PRs #33, #38 and #39).
