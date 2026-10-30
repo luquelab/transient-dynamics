@@ -27,7 +27,7 @@ B₀ ≤ K is imposed in the carrying-capacity model: B₀ is sampled log-unifor
 - lower bound: 10⁻³ per ml for both populations;
 - upper bound: 10¹⁵ per ml for bacteria and 10¹⁸ per ml for phage. These are the smallest bacterium (about 10⁻³ µm³) and the smallest phage (about 10⁻⁶ µm³) packed into 1 ml.
 
-The two models are compared up to the earlier stop time. A run is "completed" if it lasts the whole observation window τ. "Stopped" runs keep the portion up to the stop. Stopped runs with fewer than 2 compared time points (collapse within τ/10,000) are counted but not analysed.
+The two models are compared up to the earlier stop time. A run is "completed" if it lasts the whole observation window τ. "Stopped" runs keep the portion up to the stop. Stopped runs with fewer than 2 compared time points (collapse within τ/10,000) are counted but not analyzed.
 
 **Sampling.** α takes the values 10⁻⁵, 10⁻⁴, …, 1 (decades), and the same parameter samples are used at every α. The Latin hypercube size doubles (2,000 → 4,000 → …) until every α has at least 1,000 completed runs; this took 16,000 samples for the standard model and 8,000 for the carrying-capacity model. For each α, exactly 1,000 completed runs are then drawn at random (seed 2026). All analysable stopped runs are used for the supplementary analysis.
 
@@ -36,7 +36,7 @@ The two models are compared up to the earlier stop time. A run is "completed" if
 # RESULTS (α = 0.1)
 | | Standard, completed | Standard, stopped | Carrying capacity, completed | Carrying capacity, stopped |
 |---|---|---|---|---|
-| Runs analysed | 1,000 | 6,290 | 999 (+1 extreme outlier excluded) | 3,513 |
+| Runs analyzed | 1,000 | 6,290 | 999 (+1 extreme outlier excluded) | 3,513 |
 | Median error | 0.68% | 0.0035% | 0.77% | 0.0065% |
 | 90th percentile | 2.2% | 0.28% | 2.9% | 0.38% |
 | Maximum | 13% | 12% | 276% | 12% |
@@ -99,8 +99,8 @@ Runs with more than 20 switches get an extra zoomed view of their last 10 switch
 - `figure.py <standard|cc> <completed|stopped>`: the manuscript figures.
 - `investigate_outliers.py`: re-simulates the runs above tolerance and compares their trajectories with runs within tolerance.
 - `prerelevance.py`, `outlier_trajectories.py`: the pre-relevance test and the per-run diagnostic figures.
-- `si_outlier_figure.py <model> <sample> <stem>`: the supplementary outlier figures (S6: carrying-capacity run 178; S7: run 682).
-- `make_docx.js`: builds the Word documents in `manuscript/` (main text: Results, Methods, Figure 6; supplementary: Figures S3–S7). Run with `node make_docx.js`.
+- `si_outlier_figure.py <model> <sample> <stem>`: the supplementary outlier figure (S6: carrying-capacity run 178, the extreme outlier). A second example (run 682, above tolerance but not an outlier) was generated and is kept in `figures/` but is not used in the manuscript.
+- `make_docx.js`: builds the Word documents in `manuscript/` (main text: Results, Methods, Figure 6; supplementary: Figures S3–S6). Captions follow the style of the final supplementary (2026-10-30). Run with `node make_docx.js`.
 
 **`tables/`**
 - `lhs_*_seed2026.csv.gz`: every sample × α, the raw sweep.
@@ -113,7 +113,7 @@ Runs with more than 20 switches get an extra zoomed view of their last 10 switch
 - b: fraction of time with each number of relevant processes at α = 0.1 (violins and 200 random runs; n at the top is the number of runs that spend any time in that state);
 - c: the α sweep, with errors at the top (box plots, mean ◆, tolerance line, extreme outliers in ochre) and the mean ± SD fraction of time with all processes relevant at the bottom.
 
-Each panel letter is followed by a short description. Colours are neutral greys matched to the manuscript figures (`#7f8080`, `#505151`, `#231f20`), with ochre `#e5a41c` (also from the manuscript palette) for extreme outliers; red and blue are left for phage and bacteria. Fonts are Arial at 6–9 pt. The SVG text names Arial and stays editable. PNG and PDF are rendered and embedded with Liberation Sans, which has the same letter widths as Arial (Arial is not available in the cloud environment).
+Each panel letter is followed by a short description. Colors are neutral grays matched to the manuscript figures (`#7f8080`, `#505151`, `#231f20`), with ochre `#e5a41c` (also from the manuscript palette) for extreme outliers; red and blue are left for phage and bacteria. Fonts are Arial at 6–9 pt. The SVG text names Arial and stays editable. PNG and PDF are rendered and embedded with Liberation Sans, which has the same letter widths as Arial (Arial is not available in the cloud environment).
 
 **Rerun** (from `scripts/`; package versions as in `../alpha-robustness/requirements.txt`):
 
