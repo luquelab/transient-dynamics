@@ -44,7 +44,6 @@ Results are for the runs that completed the observational window.
   - S2: Scenario 4, transient.
   - S3–S5: robustness analysis (with carrying capacity; stopped runs; both).
   - S6: extreme outlier.
-- **Table 1:** the lower bound for initial populations should read 1 per ml or more. 10⁻⁴ is a typo, to be fixed in the manuscript.
 - **Stable path:** `results/alpha-robustness-v2` is cited in the Methods. Keep the path until acceptance, or update the citation.
 
 ## Next steps
