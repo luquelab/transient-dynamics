@@ -13,7 +13,7 @@ The methodology and application of transient-dynamics.ipynb are available in a p
 
 ![conceptual_figure](results/transient-dynamics-generated/png/figure_1_conceptual.png)
 
-Sergio Cobo-López, Matthew Witt, Lucas J. Carbajal, Forest L. Rohwer, Antoni Luque. "Emerging dynamic regimes and tipping points from finite empirical principles." bioRxiv 2023.12.27.573307; doi: https://doi.org/10.1101/2023.12.27.573307
+Sergio Cobo-López, Lucas J. Carbajal, Matthew Witt, Forest L. Rohwer, Antoni Luque. "Emergence of tipping points and transient dynamics in finite observations." bioRxiv 2023.12.27.573307 (version 3, 2025); doi: https://doi.org/10.1101/2023.12.27.573307
 
 Below, we provide a basic description of the notebook and repository. We recommend visiting transient-dynamics.ipynb's online documentation for a more detailed guide to using the notebook.
 

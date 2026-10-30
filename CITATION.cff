@@ -40,14 +40,14 @@ keywords:
   - Lotka-Volterra
 references:
   - type: article
-    title: "Emerging dynamic regimes and tipping points from finite empirical principles"
+    title: "Emergence of tipping points and transient dynamics in finite observations"
     authors:
       - family-names: Cobo-López
         given-names: Sergio
-      - family-names: Witt
-        given-names: Matthew
       - family-names: Carbajal
         given-names: Lucas J.
+      - family-names: Witt
+        given-names: Matthew
       - family-names: Rohwer
         given-names: Forest L.
       - family-names: Luque
@@ -55,3 +55,4 @@ references:
     journal: bioRxiv
     year: 2025
     doi: 10.1101/2023.12.27.573307
+    notes: "Version 3, posted 2025-07-10."
