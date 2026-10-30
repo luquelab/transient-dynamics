@@ -28,7 +28,7 @@ authors:
     given-names: Antoni
     orcid: "https://orcid.org/0000-0002-5817-4914"
     affiliation: "University of Miami"
-version: 0.2.2-alpha
+version: 0.2.1-alpha
 license: MIT
 repository-code: "https://github.com/luquelab/transient-dynamics"
 keywords:

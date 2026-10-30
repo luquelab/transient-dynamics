@@ -1,8 +1,8 @@
 # Transient Dynamics Through Observational Principle Normalization
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23809338.svg)](https://doi.org/10.5281/zenodo.23809338)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23809339.svg)](https://doi.org/10.5281/zenodo.23809339)
 
-**Code archive:** every release is archived on Zenodo. The DOI above always resolves to the latest release; each release also has its own DOI, listed on its Zenodo record and in [`PROGRESS.md`](PROGRESS.md). To cite the code used in a publication, use the DOI of that specific release, or GitHub's "Cite this repository" button (based on `CITATION.cff`).
+**Code archive:** release [`v0.2.1-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.1-alpha), the version used for the revised manuscript, is archived on Zenodo (DOI above). To cite the code, use that DOI or GitHub's "Cite this repository" button (based on `CITATION.cff`).
 
 ## WHAT
 transient-dynamics.ipynb is a Jupyter notebook that generates a simulation of a Lotka-Volterra predator-prey system, investigating finite observational principles by calculating the weight per process and classifying it as relevant or irrelevant based upon the inherent observational window set by the user. The inputs for the notebook involve the characteristics of the phage and bacteria population, the observer's observational time, and the ability to perceive change (observer's tolerance). The outputs of the notebook include population, weight, and relative error figures, alongside an Excel file output for all array-like variables produced during analysis and a text file for the float variables produced in calculations.
