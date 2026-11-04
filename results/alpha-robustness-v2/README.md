@@ -108,12 +108,12 @@ Runs with more than 20 switches get an extra zoomed view of their last 10 switch
 - `*_summary_by_alpha.csv`: per-α statistics for the error (mean, SD, variance, median, IQR, 90th percentile, max), the fraction of time with k = 0…P relevant processes, and the counts of runs with all processes relevant (with 95% CIs).
 - `*_outcome_counts.csv`: completed, stopped (by reason), early-stopped and failed runs.
 
-**`figures/`** contains `<model>_<set>_figure.*` (three panels, 7.2 in wide) and each panel separately (`_panel_a/b/c`), in PNG (300 dpi), PDF and SVG. The panels are:
+**`figures/`** contains `<model>_<set>_figure.*` (three panels, 7.2 in wide) and each panel separately (`_panel_a/b/c`), in PNG (300 dpi), PDF, SVG and EPS. The panels are:
 - a: error distribution at α = 0.1;
 - b: fraction of time with each number of relevant processes at α = 0.1 (violins and 200 random runs; n at the top is the number of runs that spend any time in that state);
 - c: the α sweep, with errors at the top (box plots, mean ◆, tolerance line, extreme outliers in ochre) and the mean ± SD fraction of time with all processes relevant at the bottom.
 
-Each panel letter is followed by a short description. Colors are neutral grays matched to the manuscript figures (`#7f8080`, `#505151`, `#231f20`), with ochre `#e5a41c` (also from the manuscript palette) for extreme outliers; red and blue are left for phage and bacteria. Fonts are Arial at 6–9 pt. The SVG text names Arial and stays editable. PNG and PDF are rendered and embedded with Liberation Sans, which has the same letter widths as Arial (Arial is not available in the cloud environment).
+Each panel letter is followed by a short description. Colors are neutral grays matched to the manuscript figures (`#7f8080`, `#505151`, `#231f20`), with ochre `#e5a41c` (also from the manuscript palette) for extreme outliers; red and blue are left for phage and bacteria. Fonts are Arial at 6–9 pt. The SVG text names Arial and stays editable. PNG, PDF and EPS are rendered and embedded with Liberation Sans, which has the same letter widths as Arial (Arial is not available in the cloud environment). EPS has no transparency, so its semi-transparent dots are drawn in the equivalent solid gray over white.
 
 **Rerun** (from `scripts/`; package versions as in `requirements.txt`):
 
