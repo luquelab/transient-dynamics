@@ -20,7 +20,7 @@ plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["Arial", "
 INK, DARK, MID, LIGHT, PALE, ACCENT = "#231f20", "#505151", "#7f8080", "#c9caca", "#e6e6e6", "#e5a41c"
 FLOOR = 1e-8          # errors below this (including exact zeros) are drawn at the floor, labelled "0"
 ALPHA_A = 0.1
-TITLES = {"a": "Robustness of transient model (α = 0.1)", "b": "Variability of relevant processes (α = 0.1)",
+TITLES = {"a": "Robustness of Boolean model (α = 0.1)", "b": "Variability of relevant processes (α = 0.1)",
           "c": "Robustness across tolerances (α)"}
 
 def _err_for_log(e): return np.maximum(e, FLOOR)

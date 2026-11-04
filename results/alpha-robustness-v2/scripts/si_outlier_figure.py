@@ -1,6 +1,6 @@
 """Supplementary figures for outlier runs (carrying-capacity model, alpha = 0.1): full-window and zoomed trajectories,
 relevant processes and process weights, full vs transient (Boolean) model. Style matches figure.py; colours follow the
-manuscript (blue = bacteria / bacterial processes, red = phage / phage processes, dashed black = transient model,
+manuscript (blue = bacteria / bacterial processes, red = phage / phage processes, dashed black = Boolean model,
 grey band = irrelevant zone w < 1).
 usage: si_outlier_figure.py <model> <sample> <stem>  ->  figures/<stem>.{png,pdf,svg}"""
 import os, sys, numpy as np, pandas as pd, matplotlib, matplotlib.ticker
@@ -45,13 +45,13 @@ if __name__ == "__main__":
     ax_a, ax_b, ax_c = fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1]), fig.add_subplot(gs[1, 0])
     populations(ax_a, t, yf, yb)
     ax_a.plot([], [], color=BLUE, lw=0.8, label="Bacteria"); ax_a.plot([], [], color=RED, lw=0.8, label="Phage")
-    ax_a.plot([], [], color=INK, lw=0.6, ls=(0, (3, 2)), label="Transient model")
+    ax_a.plot([], [], color=INK, lw=0.6, ls=(0, (3, 2)), label="Boolean model")
     ax_a.legend(fontsize=6, frameon=False, ncol=3, loc="lower left", bbox_to_anchor=(0, -0.02), handlelength=1.6, columnspacing=0.9)
     lo, hi = ax_a.get_ylim(); ax_a.set_ylim(lo / 1e3, hi)                       # room for the legend below the data
     ax_a.axvspan(t[i0], t[-1], color=PALE, lw=0, zorder=0)                     # zoom window shown in b-d
     populations(ax_b, t[i0:], yf[:, i0:], yb[:, i0:])
     ax_c.step(t[i0:], (wf[:, i0:] >= 1).sum(0), where="post", color=MID, lw=1.2, label="Full model")
-    ax_c.step(t[i0:], (wb[:, i0:] >= 1).sum(0), where="post", color=INK, lw=0.7, ls=(0, (3, 2)), label="Transient model")
+    ax_c.step(t[i0:], (wb[:, i0:] >= 1).sum(0), where="post", color=INK, lw=0.7, ls=(0, (3, 2)), label="Boolean model")
     ax_c.set_ylim(-0.3, P + 0.6); ax_c.set_yticks(range(P + 1)); ax_c.set_ylabel("Relevant processes (#)"); ax_c.set_xlabel("Time (h)")
     ax_c.legend(fontsize=6, frameon=False, ncol=2, loc="lower left")
     gd = gs[1, 1].subgridspec(P, 1, hspace=0.15)
