@@ -1,16 +1,16 @@
 """Manuscript figure (7.2 in wide, three panels) for one model and one run set.
 a) mean combined relative error at alpha = 0.1; b) fraction of time with 0..P relevant processes (alpha = 0.1);
 c) alpha sweep: error distribution (top) and fraction of time with all processes relevant (bottom).
-usage: figure.py <standard|cc> <completed|stopped>   ->  figures/<model>_<set>_{figure,panel_a,panel_b,panel_c}.{png,pdf,svg}"""
+usage: figure.py <standard|cc> <completed|stopped>   ->  figures/<model>_<set>_{figure,panel_a,panel_b,panel_c}.{png,pdf,svg,eps}"""
 import os, sys, numpy as np, pandas as pd, matplotlib
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, matplotlib.collections, matplotlib.lines
 from matplotlib.gridspec import GridSpec, GridSpecFromSubplotSpec
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import models
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["Arial", "Liberation Sans", "Helvetica", "DejaVu Sans"],
-                     "svg.fonttype": "none", "pdf.fonttype": 42, "font.size": 7, "axes.labelsize": 7, "xtick.labelsize": 6,
+                     "svg.fonttype": "none", "pdf.fonttype": 42, "ps.fonttype": 42, "font.size": 7, "axes.labelsize": 7, "xtick.labelsize": 6,
                      "ytick.labelsize": 6, "legend.fontsize": 6, "axes.linewidth": 0.6, "xtick.major.width": 0.6,
                      "ytick.major.width": 0.6, "xtick.major.size": 2.5, "ytick.major.size": 2.5, "axes.spines.top": False,
                      "axes.spines.right": False, "mathtext.fontset": "custom", "mathtext.rm": "Liberation Sans",
@@ -115,9 +115,22 @@ def letter(fig, ax, s, gap_pt=8):
     fig.canvas.draw(); bb = t.get_window_extent().transformed(fig.transFigure.inverted())
     fig.text(bb.x1 + 0.004, y, TITLES[s], fontsize=8.5, va="baseline", ha="left", color=INK)
 
+def _opaque(fig):
+    """EPS has no transparency: replace each semi-transparent color by the solid color it shows over white."""
+    over_white = lambda c, a: tuple(a * np.asarray(matplotlib.colors.to_rgb(c)) + (1 - a))
+    for o in fig.findobj(lambda o: (o.get_alpha() or 1) < 1 if hasattr(o, "get_alpha") else False):
+        a = o.get_alpha(); o.set_alpha(None)
+        if isinstance(o, matplotlib.collections.Collection):
+            fc = o.get_facecolors()
+            if len(fc): o.set_facecolors([over_white(c[:3], a * c[3]) for c in fc])
+        elif isinstance(o, matplotlib.lines.Line2D):
+            o.set_color(over_white(o.get_color(), a))
+            if o.get_markerfacecolor() != "none": o.set_markerfacecolor(over_white(o.get_markerfacecolor(), a))
+
 def save(fig, stem):
     for ext in ("png", "pdf", "svg"):
         fig.savefig(f"{stem}.{ext}", dpi=300 if ext == "png" else None)
+    _opaque(fig); fig.savefig(f"{stem}.eps")
     plt.close(fig)
     svg = open(f"{stem}.svg").read()  # name Arial first everywhere, so editors render the text in Arial
     open(f"{stem}.svg", "w").write(svg.replace("font-family: 'Liberation Sans'", "font-family: 'Arial', 'Liberation Sans', sans-serif"))
