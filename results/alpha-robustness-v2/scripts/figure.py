@@ -67,9 +67,12 @@ def panel_b(ax, s, P):
     rng = np.random.default_rng(2026); idx = rng.choice(len(s), size=min(200, len(s)), replace=False)
     for j in range(P + 1):
         ax.scatter(j + rng.uniform(-0.28, 0.28, len(idx)), fr[j][idx], s=1.5, color=DARK, alpha=0.55, lw=0, zorder=3)
-        ax.text(j, 1.09, f"{int(np.sum(fr[j] > 0)):,}", ha="center", va="bottom", fontsize=6, color=DARK)
-    ax.text(-0.75, 1.09, "n =", ha="right", va="bottom", fontsize=6, color=DARK)
-    ax.set_xticks(range(P + 1)); ax.set_xlim(-0.6, P + 0.6); ax.set_ylim(-0.03, 1.2); ax.set_yticks([0, 0.25, 0.5, 0.75, 1])
+        ax.text(j, 1.17, f"{int(np.sum(fr[j] > 0)):,}", ha="center", va="bottom", fontsize=6, color=DARK)
+        ax.text(j, 1.08, f"({int(np.sum(fr[j] == 1)):,})", ha="center", va="bottom", fontsize=6, color=DARK)
+    # top row: runs with any time at that number of relevant processes; bottom row: runs with all of their time at it
+    ax.text(-0.75, 1.17, "n =", ha="right", va="bottom", fontsize=6, color=DARK)
+    ax.text(-0.75, 1.08, r"(n$_{\mathrm{all}}$)", ha="right", va="bottom", fontsize=6, color=DARK)
+    ax.set_xticks(range(P + 1)); ax.set_xlim(-0.6, P + 0.6); ax.set_ylim(-0.03, 1.28); ax.set_yticks([0, 0.25, 0.5, 0.75, 1])
     ax.spines["left"].set_bounds(0, 1)
     ax.set_xlabel("Number of relevant processes"); ax.set_ylabel("Fraction of time")
 
