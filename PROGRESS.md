@@ -55,7 +55,7 @@ Results are for the runs that completed the observational window.
 1. **Finish the manuscript and rebuttal** (in progress). Cite the Zenodo DOI of `v0.2.3-alpha` (10.5281/zenodo.24014219) for the code, in the reference list, the Data Availability Statement and Table S6. After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
    - do not restructure the notebook: the analysis scripts load its model functions by cell number;
    - if the notebook must change, rerun one analysis script to confirm it still reproduces its reference value;
-   - make revision fixes on the current structure and release them as a patch (`v0.2.4-alpha`).
+   - make revision fixes on the current structure and release them as a patch (`v0.2.4-alpha`);
    - find the parameter-ranges spreadsheet (S1 Dataset), probably with Lucas or in the original submission files; add it to `data/` in a patch release if it should be archived with the code.
 2. **Refactor the code:**
    - move the model code into `src/transient_dynamics/` so analyses no longer run notebook cells by number;
