@@ -47,7 +47,7 @@ Results are for the runs that completed the observational window.
   - S2: Scenario 4, transient.
   - S3–S5: robustness analysis (S3, stopped runs; S4, with carrying capacity; S5, both). Reordered on 2026-11-06; S3 and S4 were swapped before.
   - S6: extreme outlier.
-- **Releases:** create tags and releases in the GitHub release UI; Zenodo archives each release and assigns it a version DOI. Update `version` in `CITATION.cff` before each release.
+- **Releases:** create tags and releases in the GitHub release UI; Zenodo archives each release and assigns it a version DOI. Update `version` in `CITATION.cff` before each release. The README badge shows the concept DOI, which always resolves to the latest release, so it needs no update after a release.
 - **Stable path:** `results/alpha-robustness-v2` is cited in the Methods. Keep the path until acceptance, or update the citation.
 
 ## Next steps
@@ -86,7 +86,8 @@ Newest first. One short entry per work session.
   - added the number of runs that spend all of their time with each number of relevant processes (n_all) to panel b of Figures 6 and S3–S5;
   - renumbered the supplementary figures to the revised order (S3, stopped runs; S4, with carrying capacity; S5, both) in `make_docx.js`, the README and this file (PR #44);
   - updated the supplementary figure files and the summary table for the revised manuscript to the new numbering;
-  - released `v0.2.3-alpha` (PR #46), archived on Zenodo as 10.5281/zenodo.24014219.
+  - released `v0.2.3-alpha` (PR #46), archived on Zenodo as 10.5281/zenodo.24014219, and recorded it here (PR #47);
+  - kept the README badge on the concept DOI (it resolves to `v0.2.3-alpha`).
 - **2026-11-04:**
   - computed values and a supplementary summary table of the robustness analysis for the revised manuscript;
   - relabeled Figures 6 and S3–S6 from "transient model" to "Boolean model" (PR #41);
