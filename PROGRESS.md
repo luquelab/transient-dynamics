@@ -2,14 +2,14 @@
 
 Current state of the transient-dynamics project. Keep this file short: update it at the end of each work session. Details live in the folder READMEs. This repository is public, so do not record reviewer comments or unpublished material here.
 
-Last updated: 2026-10-30
+Last updated: 2026-11-04
 
 ## Status
 
 | Area | State |
 |---|---|
 | Manuscript | Revision in progress (Cobo-López et al.; preprint: https://doi.org/10.1101/2023.12.27.573307) |
-| Robustness analysis | Done: Figure 6 and Supplementary Figures S3–S6 (`results/alpha-robustness-v2/`) |
+| Robustness analysis | Done: Figure 6 and Supplementary Figures S3–S6 (`results/alpha-robustness-v2/`); labels say "Boolean model" (PR #41); PNG, PDF, SVG and EPS (PR #42) |
 | Notebook | Carrying-capacity combined-error bug fixed and example outputs regenerated (PR #27) |
 | Repository | Legacy material removed from the working tree (PR #28); preserved in the `legacy` branch and the `v0.1.0-alpha` pre-release |
 | Releases | [`v0.2.2-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.2-alpha) (2026-10-30): **version to cite for the PLOS Computational Biology revision**, DOI [10.5281/zenodo.23810547](https://doi.org/10.5281/zenodo.23810547); cites bioRxiv version 3 and states that it accompanies the revision (PRs #33–#35 and #37). Same code and analyses as `v0.2.1-alpha` ([10.5281/zenodo.23809339](https://doi.org/10.5281/zenodo.23809339)) and `v0.2.0-alpha` (PRs #27–#30). Concept DOI, always the latest release: [10.5281/zenodo.23809338](https://doi.org/10.5281/zenodo.23809338). Previous: `v0.1.0-alpha` (before the robustness analysis) |
@@ -52,7 +52,7 @@ Results are for the runs that completed the observational window.
 
 ## Next steps
 
-1. **Finish the manuscript and rebuttal** (in progress). Cite the Zenodo DOI of `v0.2.2-alpha` (10.5281/zenodo.23810547) for the code. After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
+1. **Finish the manuscript and rebuttal** (in progress). Before resubmitting, release `v0.2.3-alpha` with the relabeled and EPS figures (PRs #41 and #42), any other revision changes and, optionally, the two supplementary files; then cite its Zenodo DOI instead of the `v0.2.2-alpha` one (10.5281/zenodo.23810547). After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
    - do not restructure the notebook: the analysis scripts load its model functions by cell number;
    - if the notebook must change, rerun one analysis script to confirm it still reproduces its reference value;
    - make revision fixes on the current structure and release them as a patch (`v0.2.3-alpha`).
@@ -81,6 +81,11 @@ Results are for the runs that completed the observational window.
 
 Newest first. One short entry per work session.
 
+- **2026-11-04:**
+  - computed values and a supplementary summary table of the robustness analysis for the revised manuscript;
+  - relabeled Figures 6 and S3–S6 from "transient model" to "Boolean model" (PR #41);
+  - added EPS versions of the robustness figures, as the journal requires (PR #42);
+  - planned `v0.2.3-alpha` for before resubmission.
 - **2026-10-30:**
   - finished the manuscript Word documents for the robustness analysis, aligned with the final supplementary figures (S7 dropped), and added `CLAUDE.md` (PR #27);
   - removed legacy and superseded material (PR #28), added `PROGRESS.md` (PR #29) and the default GitHub assignee in `CLAUDE.md` (PR #30);
