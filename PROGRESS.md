@@ -12,7 +12,7 @@ Last updated: 2026-11-06
 | Robustness analysis | Done: Figure 6 and Supplementary Figures S3–S6 (`results/alpha-robustness-v2/`); labels say "Boolean model" (PR #41); PNG, PDF, SVG and EPS (PR #42); panel b gives n and n_all, and the supplementary figures follow the revised order (2026-11-06) |
 | Notebook | Carrying-capacity combined-error bug fixed and example outputs regenerated (PR #27) |
 | Repository | Legacy material removed from the working tree (PR #28); preserved in the `legacy` branch and the `v0.1.0-alpha` pre-release |
-| Releases | [`v0.2.2-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.2-alpha) (2026-10-30): **version to cite for the PLOS Computational Biology revision**, DOI [10.5281/zenodo.23810547](https://doi.org/10.5281/zenodo.23810547); cites bioRxiv version 3 and states that it accompanies the revision (PRs #33–#35 and #37). Same code and analyses as `v0.2.1-alpha` ([10.5281/zenodo.23809339](https://doi.org/10.5281/zenodo.23809339)) and `v0.2.0-alpha` (PRs #27–#30). Concept DOI, always the latest release: [10.5281/zenodo.23809338](https://doi.org/10.5281/zenodo.23809338). Previous: `v0.1.0-alpha` (before the robustness analysis) |
+| Releases | [`v0.2.3-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.3-alpha) (2026-11-06): **version to cite for the resubmission to PLOS Computational Biology**, DOI [10.5281/zenodo.24014219](https://doi.org/10.5281/zenodo.24014219); relabeled and EPS figures, n_all counts and the revised supplementary order (PRs #41, #42, #44 and #46). Previous: `v0.2.2-alpha` ([10.5281/zenodo.23810547](https://doi.org/10.5281/zenodo.23810547)), `v0.2.1-alpha` ([10.5281/zenodo.23809339](https://doi.org/10.5281/zenodo.23809339)), `v0.2.0-alpha` (PRs #27–#30) and `v0.1.0-alpha` (before the robustness analysis). Concept DOI, always the latest release: [10.5281/zenodo.23809338](https://doi.org/10.5281/zenodo.23809338) |
 | Refactor | Not started; planned as `v0.3.0-alpha` (see Next steps) |
 
 **Versioning plan:** alpha while the code structure and interface change; beta once the package supports other models through a stable, tested interface; `v1.0.0` for a stable public interface.
@@ -52,10 +52,10 @@ Results are for the runs that completed the observational window.
 
 ## Next steps
 
-1. **Finish the manuscript and rebuttal** (in progress). Before resubmitting, release `v0.2.3-alpha` with the relabeled and EPS figures and the n_all counts in the revised figure order (PRs #41, #42 and #44), any other revision changes and, optionally, the two supplementary files; then cite its Zenodo DOI instead of the `v0.2.2-alpha` one (10.5281/zenodo.23810547). After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
+1. **Finish the manuscript and rebuttal** (in progress). Cite the Zenodo DOI of `v0.2.3-alpha` (10.5281/zenodo.24014219) for the code, in the reference list, the Data Availability Statement and Table S6. After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
    - do not restructure the notebook: the analysis scripts load its model functions by cell number;
    - if the notebook must change, rerun one analysis script to confirm it still reproduces its reference value;
-   - make revision fixes on the current structure and release them as a patch (`v0.2.3-alpha`).
+   - make revision fixes on the current structure and release them as a patch (`v0.2.4-alpha`).
 2. **Refactor the code:**
    - move the model code into `src/transient_dynamics/` so analyses no longer run notebook cells by number;
    - add regression tests for the example scenarios;
@@ -85,7 +85,8 @@ Newest first. One short entry per work session.
   - computed the values for the revised Results paragraph on the robustness analysis;
   - added the number of runs that spend all of their time with each number of relevant processes (n_all) to panel b of Figures 6 and S3–S5;
   - renumbered the supplementary figures to the revised order (S3, stopped runs; S4, with carrying capacity; S5, both) in `make_docx.js`, the README and this file (PR #44);
-  - updated the supplementary figure files and the summary table for the revised manuscript to the new numbering.
+  - updated the supplementary figure files and the summary table for the revised manuscript to the new numbering;
+  - released `v0.2.3-alpha` (PR #46), archived on Zenodo as 10.5281/zenodo.24014219.
 - **2026-11-04:**
   - computed values and a supplementary summary table of the robustness analysis for the revised manuscript;
   - relabeled Figures 6 and S3–S6 from "transient model" to "Boolean model" (PR #41);
