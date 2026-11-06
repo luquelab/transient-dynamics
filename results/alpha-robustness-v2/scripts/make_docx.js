@@ -45,13 +45,13 @@ const MODEL = { standard: "phage–bacteria (Lotka–Volterra) model", cc: "phag
 const NPROC = { standard: 4, cc: 5 };
 const SETDESC = {
   completed: "only simulations that remained within the physical bounds for the full observational window are shown",
-  stopped: "only simulations that were stopped because a population left the physical bounds before the end of the observational window are shown, and both models are compared up to the stop time",
+  stopped: "only simulations that were stopped before the end of the observational window (Methods of the main text) are shown, and both models are compared up to the stop time",
 };
 function robustCaption(label, title, model, set, n) {
   const P = NPROC[model], span = set === "stopped" ? "simulated" : "observational";
   return `**${label}. ${title}** Latin hypercube sampling (log-uniform) of the parameters, initial concentrations, and observational time of the ${MODEL[model]}; ${SETDESC[set]} (n = ${n} for α = 0.1). ` +
-    `**a)** Histogram of the mean combined relative error (%) between the transient (Boolean) and full models at α = 0.1${set === "stopped" ? ", calculated over the simulated portion of each trajectory" : ""}; the bar labeled 0 counts runs with zero error (all processes relevant throughout), the dashed line marks the median, and the solid black line marks the observer tolerance (10%, corresponding to α = 0.1). ` +
-    `**b)** Fraction of the ${span} time that each run spent with 0 to ${P} relevant processes (weight w ≥ 1) at α = 0.1; violins show the distribution across runs, gray points are a random sample of 200 runs, and the numbers on top (n) are the runs that spent any time with that number of relevant processes. ` +
+    `**a)** Histogram of the mean combined relative error (%) between the adaptive Boolean and full models at α = 0.1${set === "stopped" ? ", calculated over the simulated portion of each trajectory" : ""}; the bar labeled 0 counts runs with zero error (all processes relevant throughout), the dashed line marks the median, and the solid black line marks the observer tolerance (10%, corresponding to α = 0.1). ` +
+    `**b)** Fraction of the ${span} time that each run spent with 0 to ${P} relevant processes (weight w ≥ 1) at α = 0.1; violins show the distribution across runs, gray points are a random sample of 200 runs, the numbers on top (n) are the runs that spent any time with that number of relevant processes, and the numbers in parentheses (n~all~) are the runs that spent all of the ${span} time with that number. ` +
     `**c)** Top, box plots of the mean combined relative error for α = 10^−5^ to 1 (box, interquartile range, IQR; line, median; whiskers, 1.5 × IQR; points, values beyond the whiskers), with the mean (◆) and the observer tolerance, 100·α % (dashed line); zero errors are drawn at the bottom of the axis, labeled 0. Bottom, mean ± standard deviation of the fraction of ${span} time with all ${P} processes relevant. ` +
     `Extreme outliers (Tukey's far-out test, above Q3 + 3 × IQR of log~10~ error) are excluded from the statistics and, when present, shown in ochre.`;
 }
@@ -78,24 +78,24 @@ const main = doc([
     "The code and data are available in the project repository (results/alpha-robustness-v2)."),
   heading("Figure"),
   figure("standard_completed_figure.png"),
-  para(robustCaption("Figure 6", "Robust analysis of the Boolean model.", "standard", "completed", "1,000")),
+  para(robustCaption("Figure 6", "Robustness analysis of the adaptive Boolean model.", "standard", "completed", "1,000")),
 ]);
 
 // ---------- supplementary ----------
 const supp = doc([
   heading("Figures"),
-  figure("cc_completed_figure.png"),
-  para(robustCaption("Figure S3", "Robust analysis of the Boolean model with carrying capacity.", "cc", "completed", "1,000")),
   figure("standard_stopped_figure.png"),
-  para(robustCaption("Figure S4", "Robust analysis of the Boolean model for stopped simulations.", "standard", "stopped", "6,290")),
+  para(robustCaption("Figure S3", "Robustness analysis of the adaptive Boolean model for stopped simulations.", "standard", "stopped", "6,290")),
+  figure("cc_completed_figure.png"),
+  para(robustCaption("Figure S4", "Robustness analysis of the adaptive Boolean model with carrying capacity.", "cc", "completed", "1,000")),
   figure("cc_stopped_figure.png"),
-  para(robustCaption("Figure S5", "Robust analysis of the Boolean model with carrying capacity for stopped simulations.", "cc", "stopped", "3,513")),
+  para(robustCaption("Figure S5", "Robustness analysis of the adaptive Boolean model with carrying capacity for stopped simulations.", "cc", "stopped", "3,513")),
   figure("figure_S6_cc_outlier_run178.png"),
-  para("**Figure S6. Example of the extreme outlier with carrying capacity: persistent delay.** Simulation 178 of the robust analysis of the model with carrying capacity at α = 0.1 (mean combined relative error 8.6 × 10^5^%; extreme outlier). Blue, bacteria and bacterial processes; red, phage and phage processes; dashed black, transient (Boolean) model. " +
-    "**a)** Bacteria and phage concentrations over the full observational window for the full (solid) and transient (dashed) models; the shaded interval marks the last cycles shown in b–d. " +
-    "**b)** Concentrations over the last cycles, showing the delay accumulated by the transient model. " +
-    "**c)** Number of relevant processes (w ≥ 1) in the full (solid gray) and transient (dashed) models. " +
-    "**d)** Weight of each process in the full (colored) and transient (dashed) models; the gray band marks irrelevant weights (w < 1), and the solid line marks the threshold w = 1."),
+  para("**Figure S6. Example of the extreme outlier with carrying capacity: persistent delay.** Simulation 178 of the robustness analysis of the model with carrying capacity at α = 0.1 (mean combined relative error 8.6 × 10^5^%; extreme outlier). The Boolean model gradually leads the full model by up to about 47 h at the end of the window, so phage troughs near 10^−1^ ml^−1^ are compared with peaks near 4·10^6^ ml^−1^; the error reflects this phase shift rather than different dynamics. Blue, bacteria and bacterial processes; red, phage and phage processes; dashed black, adaptive Boolean model. " +
+    "**a)** Bacteria and phage concentrations over the full observational window for the full (solid) and Boolean (dashed) models; the shaded interval marks the last cycles shown in b–d. " +
+    "**b)** Concentrations over the last cycles, showing the delay accumulated by the Boolean model. " +
+    "**c)** Number of relevant processes (w ≥ 1) in the full (solid gray) and Boolean (dashed) models. " +
+    "**d)** Weight of each process in the full (colored) and Boolean (dashed) models; the gray band marks irrelevant weights (w < 1), and the solid line marks the threshold w = 1."),
 ]);
 
 fs.mkdirSync(OUT, { recursive: true });

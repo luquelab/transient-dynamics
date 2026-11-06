@@ -100,7 +100,7 @@ Runs with more than 20 switches get an extra zoomed view of their last 10 switch
 - `investigate_outliers.py`: re-simulates the runs above tolerance and compares their trajectories with runs within tolerance.
 - `prerelevance.py`, `outlier_trajectories.py`: the pre-relevance test and the per-run diagnostic figures.
 - `si_outlier_figure.py <model> <sample> <stem>`: the supplementary outlier figure (S6: carrying-capacity run 178, the extreme outlier). A second example (run 682, above tolerance but not an outlier) was generated and is kept in `figures/` but is not used in the manuscript.
-- `make_docx.js`: builds the Word documents in `manuscript/` (main text: Results, Methods, Figure 6; supplementary: Figures S3–S6). Captions follow the style of the final supplementary (2026-10-30). Run with `node make_docx.js`.
+- `make_docx.js`: builds the Word documents in `manuscript/` (main text: Results, Methods, Figure 6; supplementary: Figures S3–S6). Captions and figure order follow the revised supplementary (2026-11-04). The main-text paragraphs are the original draft; the manuscript has the revised text. Run with `node make_docx.js`.
 
 **`tables/`**
 - `lhs_*_seed2026.csv.gz`: every sample × α, the raw sweep.
@@ -110,8 +110,10 @@ Runs with more than 20 switches get an extra zoomed view of their last 10 switch
 
 **`figures/`** contains `<model>_<set>_figure.*` (three panels, 7.2 in wide) and each panel separately (`_panel_a/b/c`), in PNG (300 dpi), PDF, SVG and EPS. The panels are:
 - a: error distribution at α = 0.1;
-- b: fraction of time with each number of relevant processes at α = 0.1 (violins and 200 random runs; n at the top is the number of runs that spend any time in that state);
+- b: fraction of time with each number of relevant processes at α = 0.1 (violins and 200 random runs; n at the top is the number of runs that spend any time in that state, and n_all in parentheses below it the number that spend all of their time in it);
 - c: the α sweep, with errors at the top (box plots, mean ◆, tolerance line, extreme outliers in ochre) and the mean ± SD fraction of time with all processes relevant at the bottom.
+
+Manuscript numbering: Figure 6, `standard_completed`; Figure S3, `standard_stopped`; Figure S4, `cc_completed`; Figure S5, `cc_stopped`; Figure S6, `figure_S6_cc_outlier_run178`.
 
 Each panel letter is followed by a short description. Colors are neutral grays matched to the manuscript figures (`#7f8080`, `#505151`, `#231f20`), with ochre `#e5a41c` (also from the manuscript palette) for extreme outliers; red and blue are left for phage and bacteria. Fonts are Arial at 6–9 pt. The SVG text names Arial and stays editable. PNG, PDF and EPS are rendered and embedded with Liberation Sans, which has the same letter widths as Arial (Arial is not available in the cloud environment). EPS has no transparency, so its semi-transparent dots are drawn in the equivalent solid gray over white.
 

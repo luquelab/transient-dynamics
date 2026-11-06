@@ -2,14 +2,14 @@
 
 Current state of the transient-dynamics project. Keep this file short: update it at the end of each work session. Details live in the folder READMEs. This repository is public, so do not record reviewer comments or unpublished material here.
 
-Last updated: 2026-11-04
+Last updated: 2026-11-06
 
 ## Status
 
 | Area | State |
 |---|---|
 | Manuscript | Revision in progress (Cobo-López et al.; preprint: https://doi.org/10.1101/2023.12.27.573307) |
-| Robustness analysis | Done: Figure 6 and Supplementary Figures S3–S6 (`results/alpha-robustness-v2/`); labels say "Boolean model" (PR #41); PNG, PDF, SVG and EPS (PR #42) |
+| Robustness analysis | Done: Figure 6 and Supplementary Figures S3–S6 (`results/alpha-robustness-v2/`); labels say "Boolean model" (PR #41); PNG, PDF, SVG and EPS (PR #42); panel b gives n and n_all, and the supplementary figures follow the revised order (2026-11-06) |
 | Notebook | Carrying-capacity combined-error bug fixed and example outputs regenerated (PR #27) |
 | Repository | Legacy material removed from the working tree (PR #28); preserved in the `legacy` branch and the `v0.1.0-alpha` pre-release |
 | Releases | [`v0.2.2-alpha`](https://github.com/luquelab/transient-dynamics/releases/tag/v0.2.2-alpha) (2026-10-30): **version to cite for the PLOS Computational Biology revision**, DOI [10.5281/zenodo.23810547](https://doi.org/10.5281/zenodo.23810547); cites bioRxiv version 3 and states that it accompanies the revision (PRs #33–#35 and #37). Same code and analyses as `v0.2.1-alpha` ([10.5281/zenodo.23809339](https://doi.org/10.5281/zenodo.23809339)) and `v0.2.0-alpha` (PRs #27–#30). Concept DOI, always the latest release: [10.5281/zenodo.23809338](https://doi.org/10.5281/zenodo.23809338). Previous: `v0.1.0-alpha` (before the robustness analysis) |
@@ -45,7 +45,7 @@ Results are for the runs that completed the observational window.
 - **Supplementary numbering:**
   - S1: Scenario 2, decay relevant.
   - S2: Scenario 4, transient.
-  - S3–S5: robustness analysis (with carrying capacity; stopped runs; both).
+  - S3–S5: robustness analysis (S3, stopped runs; S4, with carrying capacity; S5, both). Reordered on 2026-11-06; S3 and S4 were swapped before.
   - S6: extreme outlier.
 - **Releases:** create tags and releases in the GitHub release UI; Zenodo archives each release and assigns it a version DOI. Update `version` in `CITATION.cff` before each release.
 - **Stable path:** `results/alpha-robustness-v2` is cited in the Methods. Keep the path until acceptance, or update the citation.
@@ -81,6 +81,10 @@ Results are for the runs that completed the observational window.
 
 Newest first. One short entry per work session.
 
+- **2026-11-06:**
+  - computed the values for the revised Results paragraph on the robustness analysis;
+  - added the number of runs that spend all of their time with each number of relevant processes (n_all) to panel b of Figures 6 and S3–S5;
+  - renumbered the supplementary figures to the revised order (S3, stopped runs; S4, with carrying capacity; S5, both) in `make_docx.js`, the README and this file.
 - **2026-11-04:**
   - computed values and a supplementary summary table of the robustness analysis for the revised manuscript;
   - relabeled Figures 6 and S3–S6 from "transient model" to "Boolean model" (PR #41);
