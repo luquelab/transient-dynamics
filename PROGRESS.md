@@ -52,7 +52,7 @@ Results are for the runs that completed the observational window.
 
 ## Next steps
 
-1. **Finish the manuscript and rebuttal** (in progress). Before resubmitting, release `v0.2.3-alpha` with the relabeled and EPS figures (PRs #41 and #42), any other revision changes and, optionally, the two supplementary files; then cite its Zenodo DOI instead of the `v0.2.2-alpha` one (10.5281/zenodo.23810547). After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
+1. **Finish the manuscript and rebuttal** (in progress). Before resubmitting, release `v0.2.3-alpha` with the relabeled and EPS figures and the n_all counts in the revised figure order (PRs #41, #42 and #44), any other revision changes and, optionally, the two supplementary files; then cite its Zenodo DOI instead of the `v0.2.2-alpha` one (10.5281/zenodo.23810547). After the revision, release again with the new bioRxiv version (or the published article) and remove the "under review" wording. Until the refactor:
    - do not restructure the notebook: the analysis scripts load its model functions by cell number;
    - if the notebook must change, rerun one analysis script to confirm it still reproduces its reference value;
    - make revision fixes on the current structure and release them as a patch (`v0.2.3-alpha`).
@@ -84,7 +84,8 @@ Newest first. One short entry per work session.
 - **2026-11-06:**
   - computed the values for the revised Results paragraph on the robustness analysis;
   - added the number of runs that spend all of their time with each number of relevant processes (n_all) to panel b of Figures 6 and S3–S5;
-  - renumbered the supplementary figures to the revised order (S3, stopped runs; S4, with carrying capacity; S5, both) in `make_docx.js`, the README and this file.
+  - renumbered the supplementary figures to the revised order (S3, stopped runs; S4, with carrying capacity; S5, both) in `make_docx.js`, the README and this file (PR #44);
+  - updated the supplementary figure files and the summary table for the revised manuscript to the new numbering.
 - **2026-11-04:**
   - computed values and a supplementary summary table of the robustness analysis for the revised manuscript;
   - relabeled Figures 6 and S3–S6 from "transient model" to "Boolean model" (PR #41);
