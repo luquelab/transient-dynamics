@@ -56,6 +56,7 @@ Results are for the runs that completed the observational window.
    - do not restructure the notebook: the analysis scripts load its model functions by cell number;
    - if the notebook must change, rerun one analysis script to confirm it still reproduces its reference value;
    - make revision fixes on the current structure and release them as a patch (`v0.2.4-alpha`).
+   - find the parameter-ranges spreadsheet (S1 Dataset), probably with Lucas or in the original submission files; add it to `data/` in a patch release if it should be archived with the code.
 2. **Refactor the code:**
    - move the model code into `src/transient_dynamics/` so analyses no longer run notebook cells by number;
    - add regression tests for the example scenarios;
@@ -87,7 +88,8 @@ Newest first. One short entry per work session.
   - renumbered the supplementary figures to the revised order (S3, stopped runs; S4, with carrying capacity; S5, both) in `make_docx.js`, the README and this file (PR #44);
   - updated the supplementary figure files and the summary table for the revised manuscript to the new numbering;
   - released `v0.2.3-alpha` (PR #46), archived on Zenodo as 10.5281/zenodo.24014219, and recorded it here (PR #47);
-  - kept the README badge on the concept DOI (it resolves to `v0.2.3-alpha`).
+  - kept the README badge on the concept DOI (it resolves to `v0.2.3-alpha`);
+  - searched the repository, the `legacy` branch and the history for the two supplementary datasets: the simulation outputs are `data/transient-dynamics_output-current/` (packaged as `supplementary_file_simulations_outputs.zip` from `v0.2.3-alpha`); the parameter-ranges spreadsheet (`supplementary_file_parameter_ranges.xlsx`) is not in the repository.
 - **2026-11-04:**
   - computed values and a supplementary summary table of the robustness analysis for the revised manuscript;
   - relabeled Figures 6 and S3–S6 from "transient model" to "Boolean model" (PR #41);
