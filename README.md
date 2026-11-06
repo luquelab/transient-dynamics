@@ -4,7 +4,7 @@
 
 **Code archive:** every release is archived on Zenodo. The DOI above always resolves to the latest release; each release also has its own DOI, listed on its Zenodo record and in [`PROGRESS.md`](PROGRESS.md). To cite the code used in a publication, use the DOI of that specific release, or GitHub's "Cite this repository" button (based on `CITATION.cff`).
 
-**Manuscript status:** release `v0.2.2-alpha` accompanies the revision of the manuscript "Emerging transient dynamics at finite observation scales" for *PLOS Computational Biology*. The current preprint is bioRxiv version 3 (cited below).
+**Manuscript status:** release `v0.2.3-alpha` accompanies the revision of the manuscript "Emerging transient dynamics at finite observation scales" for *PLOS Computational Biology*. The current preprint is bioRxiv version 3 (cited below).
 
 ## WHAT
 transient-dynamics.ipynb is a Jupyter notebook that generates a simulation of a Lotka-Volterra predator-prey system, investigating finite observational principles by calculating the weight per process and classifying it as relevant or irrelevant based upon the inherent observational window set by the user. The inputs for the notebook involve the characteristics of the phage and bacteria population, the observer's observational time, and the ability to perceive change (observer's tolerance). The outputs of the notebook include population, weight, and relative error figures, alongside an Excel file output for all array-like variables produced during analysis and a text file for the float variables produced in calculations.
